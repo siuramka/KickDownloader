@@ -35,7 +35,7 @@ namespace TwitchDownloaderCore.Chat
             var outputDirectory = Directory.GetParent(Path.GetFullPath(filePath))!;
             if (!outputDirectory.Exists)
             {
-                TwitchHelper.CreateDirectory(outputDirectory.FullName);
+                KickHelper.CreateDirectory(outputDirectory.FullName);
             }
 
             await using var fs = File.Create(filePath);
@@ -85,7 +85,7 @@ namespace TwitchDownloaderCore.Chat
 
         private static async Task BuildThirdPartyDictionary(ChatRoot chatRoot, bool embedData, Dictionary<string, EmbedEmoteData> thirdEmoteData, CancellationToken cancellationToken)
         {
-            EmoteResponse emotes = await TwitchHelper.GetThirdPartyEmoteData(chatRoot.streamer.id, true, true, true, true, cancellationToken);
+            EmoteResponse emotes = await KickHelper.GetThirdPartyEmoteData(chatRoot.streamer.id, true, true, true, true, cancellationToken);
             List<EmoteResponseItem> itemList = new();
             itemList.AddRange(emotes.BTTV);
             itemList.AddRange(emotes.FFZ);
@@ -117,7 +117,7 @@ namespace TwitchDownloaderCore.Chat
             if (embedData)
                 return;
 
-            List<EmbedChatBadge> badges = await TwitchHelper.GetChatBadgesData(chatRoot.comments, chatRoot.streamer.id, cancellationToken);
+            List<EmbedChatBadge> badges = await KickHelper.GetChatBadgesData(chatRoot.comments, chatRoot.streamer.id, cancellationToken);
 
             foreach (var badge in badges)
             {

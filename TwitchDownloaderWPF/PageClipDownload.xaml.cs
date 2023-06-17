@@ -46,8 +46,8 @@ namespace TwitchDownloaderWPF
             {
                 btnGetInfo.IsEnabled = false;
                 comboQuality.Items.Clear();
-                Task<GqlClipResponse> taskClipInfo = TwitchHelper.GetClipInfo(clipId);
-                Task<List<GqlClipTokenResponse>> taskLinks = TwitchHelper.GetClipLinks(clipId);
+                Task<GqlClipResponse> taskClipInfo = KickHelper.GetClipInfo(clipId);
+                Task<List<GqlClipTokenResponse>> taskLinks = KickHelper.GetClipLinks(clipId);
                 await Task.WhenAll(taskClipInfo, taskLinks);
 
                 GqlClipResponse clipData = taskClipInfo.Result;

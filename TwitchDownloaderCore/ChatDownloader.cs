@@ -226,7 +226,7 @@ namespace TwitchDownloaderCore
                 videoEnd = downloadOptions.CropEnding ? downloadOptions.CropEndingTime : videoInfoResponse.data.video.lengthSeconds;
                 videoTotalLength = videoInfoResponse.data.video.lengthSeconds;
 
-                GqlVideoChapterResponse videoChapterResponse = await TwitchHelper.GetVideoChapters(int.Parse(videoId));
+                GqlVideoChapterResponse videoChapterResponse = await KickHelper.GetVideoChapters(int.Parse(videoId));
                 foreach (var responseChapter in videoChapterResponse.data.video.moments.edges)
                 {
                     VideoChapter chapter = new()
@@ -247,7 +247,7 @@ namespace TwitchDownloaderCore
             }
             else
             {
-                GqlClipResponse clipInfoResponse = await TwitchHelper.GetClipInfo(videoId);
+                GqlClipResponse clipInfoResponse = await KickHelper.GetClipInfo(videoId);
                 if (clipInfoResponse.data.clip.video == null || clipInfoResponse.data.clip.videoOffsetSeconds == null)
                 {
                     throw new NullReferenceException("Invalid VOD for clip, deleted/expired VOD possibly?");
@@ -329,10 +329,10 @@ namespace TwitchDownloaderCore
 
                 // This is the exact same process as in ChatUpdater.cs but not in a task oriented manner
                 // TODO: Combine this with ChatUpdater in a different file
-                List<TwitchEmote> thirdPartyEmotes = await TwitchHelper.GetThirdPartyEmotes(comments, chatRoot.streamer.id, downloadOptions.TempFolder, bttv: downloadOptions.BttvEmotes, ffz: downloadOptions.FfzEmotes, stv: downloadOptions.StvEmotes, cancellationToken: cancellationToken);
-                List<TwitchEmote> firstPartyEmotes = await TwitchHelper.GetEmotes(comments, downloadOptions.TempFolder, cancellationToken: cancellationToken);
-                List<ChatBadge> twitchBadges = await TwitchHelper.GetChatBadges(comments, chatRoot.streamer.id, downloadOptions.TempFolder, cancellationToken: cancellationToken);
-                List<CheerEmote> twitchBits = await TwitchHelper.GetBits(comments, downloadOptions.TempFolder, chatRoot.streamer.id.ToString(), cancellationToken: cancellationToken);
+                List<TwitchEmote> thirdPartyEmotes = await KickHelper.GetThirdPartyEmotes(comments, chatRoot.streamer.id, downloadOptions.TempFolder, bttv: downloadOptions.BttvEmotes, ffz: downloadOptions.FfzEmotes, stv: downloadOptions.StvEmotes, cancellationToken: cancellationToken);
+                List<TwitchEmote> firstPartyEmotes = await KickHelper.GetEmotes(comments, downloadOptions.TempFolder, cancellationToken: cancellationToken);
+                List<ChatBadge> twitchBadges = await KickHelper.GetChatBadges(comments, chatRoot.streamer.id, downloadOptions.TempFolder, cancellationToken: cancellationToken);
+                List<CheerEmote> twitchBits = await KickHelper.GetBits(comments, downloadOptions.TempFolder, chatRoot.streamer.id.ToString(), cancellationToken: cancellationToken);
 
                 cancellationToken.ThrowIfCancellationRequested();
 
@@ -397,7 +397,7 @@ namespace TwitchDownloaderCore
                     try
                     {
                         List<string> userSubset = userList.Skip(i * batchSize).Take(batchSize).ToList();
-                        GqlUserInfoResponse userInfoResponse = await TwitchHelper.GetUserInfo(userSubset);
+                        GqlUserInfoResponse userInfoResponse = await KickHelper.GetUserInfo(userSubset);
                         foreach (var user in userInfoResponse.data.users)
                         {
                             userInfo[user.id] = user;

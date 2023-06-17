@@ -151,7 +151,7 @@ namespace TwitchDownloaderCore.Tools
 
         private static SKBitmap GenerateGiftedManyIcon(double fontSize, string cachePath)
         {
-            var taskIconBytes = TwitchHelper.GetImage(cachePath, GIFTED_MANY_ICON_URL, "gift-illus", "3", "png");
+            var taskIconBytes = KickHelper.GetImage(cachePath, GIFTED_MANY_ICON_URL, "gift-illus", "3", "png");
             taskIconBytes.Wait();
             using var ms = new MemoryStream(taskIconBytes.Result); // Illustration is 72x72
             var codec = SKCodec.Create(ms);

@@ -24,7 +24,7 @@ namespace TwitchDownloaderCore
 
         public async Task DownloadAsync(CancellationToken cancellationToken = new())
         {
-            List<GqlClipTokenResponse> listLinks = await TwitchHelper.GetClipLinks(downloadOptions.Id);
+            List<GqlClipTokenResponse> listLinks = await KickHelper.GetClipLinks(downloadOptions.Id);
 
             if (listLinks[0].data.clip.playbackAccessToken is null)
             {
@@ -58,7 +58,7 @@ namespace TwitchDownloaderCore
             var clipDirectory = Directory.GetParent(Path.GetFullPath(downloadOptions.Filename))!;
             if (!clipDirectory.Exists)
             {
-                TwitchHelper.CreateDirectory(clipDirectory.FullName);
+                KickHelper.CreateDirectory(clipDirectory.FullName);
             }
 
             var request = new HttpRequestMessage(HttpMethod.Get, downloadUrl);

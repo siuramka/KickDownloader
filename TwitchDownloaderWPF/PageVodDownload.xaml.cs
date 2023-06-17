@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using TwitchDownloaderCore;
 using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.Tools;
+using TwitchDownloaderCore.TwitchObjects.Api;
 using TwitchDownloaderCore.TwitchObjects.Gql;
 using TwitchDownloaderWPF.Properties;
 using TwitchDownloaderWPF.Services;
@@ -29,7 +30,7 @@ namespace TwitchDownloaderWPF
     public partial class PageVodDownload : Page
     {
         public Dictionary<string, (string url, int bandwidth)> videoQualties = new();
-        public int currentVideoId;
+        public string currentVideoId;
         public DateTime currentVideoTime;
         public TimeSpan vodLength;
         private CancellationTokenSource _cancellationTokenSource;
@@ -73,23 +74,22 @@ namespace TwitchDownloaderWPF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0018:Inline variable declaration")]
         private async void btnGetInfo_Click(object sender, RoutedEventArgs e)
         {
-            int videoId = ValidateUrl(textUrl.Text.Trim());
-            if (videoId <= 0)
+            string videoId = ValidateUrl(textUrl.Text.Trim());
+            if (videoId == null)
             {
                 MessageBox.Show(Translations.Strings.InvalidVideoLinkIdMessage.Replace(@"\n", Environment.NewLine), Translations.Strings.InvalidVideoLinkId, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            
             currentVideoId = videoId;
             try
             {
-                Task<GqlVideoResponse> taskVideoInfo = TwitchHelper.GetVideoInfo(videoId);
-                Task<GqlVideoTokenResponse> taskAccessToken = TwitchHelper.GetVideoToken(videoId, TextOauth.Text);
-                await Task.WhenAll(taskVideoInfo, taskAccessToken);
-                Task<string[]> taskPlaylist = TwitchHelper.GetVideoPlaylist(videoId, taskAccessToken.Result.data.videoPlaybackAccessToken.value, taskAccessToken.Result.data.videoPlaybackAccessToken.signature);
+                Task<VideoResponse> taskVideoInfo = KickHelper.GetVideoInfo(videoId);
+                await Task.WhenAll(taskVideoInfo);
+                Task<string[]> taskPlaylist = KickHelper.GetVideoPlaylist(taskVideoInfo.Result.source);
                 try
                 {
-                    string thumbUrl = taskVideoInfo.Result.data.video.thumbnailURLs.FirstOrDefault();
+                    string thumbUrl = taskVideoInfo.Result.livestream.thumbnail; // kick api is not really returning correct db data, the sql relationships seem a little shit so it provides data from video but also includes some liveastream/main stream
                     imgThumbnail.Source = await ThumbnailService.GetThumb(thumbUrl);
                 }
                 catch
@@ -118,23 +118,27 @@ namespace TwitchDownloaderWPF
                         string stringQuality = lastPart.Substring(0, lastPart.IndexOf('"'));
 
                         var bandwidthStartIndex = playlist[i + 1].IndexOf("BANDWIDTH=") + 10;
-                        var bandwidthEndIndex = playlist[i + 1].IndexOf(',') - bandwidthStartIndex;
+                        var bandwidthEndIndex = playlist[i + 1].IndexOf(',', bandwidthStartIndex + 1);
                         int bandwidth = 0; // Cannot be inlined if we want default value of 0
-                        int.TryParse(playlist[i + 1].Substring(bandwidthStartIndex, bandwidthEndIndex), out bandwidth);
+                        string bandwithString = playlist[i + 1].Substring(bandwidthStartIndex, bandwidthEndIndex - bandwidthStartIndex);
+                        int.TryParse(bandwithString, out bandwidth);
 
+                        string tempUrl = taskVideoInfo.Result.source;
+                        string streamUrl = tempUrl.Replace("/master.m3u8", playlist[i + 2]);
+                        
                         if (!videoQualties.ContainsKey(stringQuality))
                         {
-                            videoQualties.Add(stringQuality, (playlist[i + 2], bandwidth));
+                            videoQualties.Add(stringQuality, (streamUrl, bandwidth));
                             comboQuality.Items.Add(stringQuality);
                         }
                     }
                 }
                 comboQuality.SelectedIndex = 0;
-
-                vodLength = TimeSpan.FromSeconds(taskVideoInfo.Result.data.video.lengthSeconds);
-                textStreamer.Text = taskVideoInfo.Result.data.video.owner.displayName;
-                textTitle.Text = taskVideoInfo.Result.data.video.title;
-                var videoCreatedAt = taskVideoInfo.Result.data.video.createdAt;
+                
+                vodLength = TimeSpan.FromSeconds(taskVideoInfo.Result.livestream.duration);
+                textStreamer.Text = taskVideoInfo.Result.livestream.channel.slug;
+                textTitle.Text = taskVideoInfo.Result.livestream.session_title;
+                var videoCreatedAt = taskVideoInfo.Result.created_at;
                 textCreatedAt.Text = Settings.Default.UTCVideoTime ? videoCreatedAt.ToString(CultureInfo.CurrentCulture) : videoCreatedAt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
                 currentVideoTime = Settings.Default.UTCVideoTime ? videoCreatedAt : videoCreatedAt.ToLocalTime();
                 var urlTimeCodeMatch = Regex.Match(textUrl.Text, @"(?<=\?t=)\d+h\d+m\d+s");
@@ -153,15 +157,15 @@ namespace TwitchDownloaderWPF
                     numStartSecond.Value = 0;
                 }
                 numStartHour.Maximum = (int)vodLength.TotalHours;
-
+                
                 numEndHour.Value = (int)vodLength.TotalHours;
                 numEndHour.Maximum = (int)vodLength.TotalHours;
                 numEndMinute.Value = vodLength.Minutes;
                 numEndSecond.Value = vodLength.Seconds;
                 labelLength.Text = vodLength.ToString("c");
-
+                
                 UpdateVideoSizeEstimates();
-
+                
                 SetEnabled(true);
             }
             catch (Exception ex)
@@ -201,7 +205,7 @@ namespace TwitchDownloaderWPF
                     checkEnd.IsChecked == true ? new TimeSpan((int)numEndHour.Value, (int)numEndMinute.Value, (int)numEndSecond.Value) : vodLength) + ".mp4"),
                 Oauth = TextOauth.Text,
                 Quality = GetQualityWithoutSize(comboQuality.Text).ToString(),
-                Id = currentVideoId,
+                Id = 123,
                 CropBeginning = (bool)checkStart.IsChecked,
                 CropBeginningTime = (int)(new TimeSpan((int)numStartHour.Value, (int)numStartMinute.Value, (int)numStartSecond.Value).TotalSeconds),
                 CropEnding = (bool)checkEnd.IsChecked,
@@ -304,15 +308,16 @@ namespace TwitchDownloaderWPF
             }
         }
 
-        private static int ValidateUrl(string text)
+        private static string ValidateUrl(string text)
         {
-            var vodIdMatch = Regex.Match(text, @"(?<=^|twitch\.tv\/videos\/)\d+(?=$|\?)");
-            if (vodIdMatch.Success && int.TryParse(vodIdMatch.ValueSpan, out var vodId))
+            var vodIdMatch = Regex.Match(text, @"^https:\/\/kick\.com\/video\/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$");
+            string vodGuid = text.Split('/').Last();
+            if (vodIdMatch.Success)
             {
-                return vodId;
+                return vodGuid;
             }
 
-            return -1;
+            return null;
         }
 
         public bool ValidateInputs()

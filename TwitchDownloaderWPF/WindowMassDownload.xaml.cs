@@ -61,7 +61,7 @@ namespace TwitchDownloaderWPF
                 {
                     currentCursor = cursorList[cursorIndex];
                 }
-                GqlVideoSearchResponse res = await TwitchHelper.GetGqlVideos(currentChannel, currentCursor, 100);
+                GqlVideoSearchResponse res = await KickHelper.GetGqlVideos(currentChannel, currentCursor, 100);
                 videoList.Clear();
                 if (res.data.user != null)
                 {
@@ -109,7 +109,7 @@ namespace TwitchDownloaderWPF
                 {
                     currentCursor = cursorList[cursorIndex];
                 }
-                GqlClipSearchResponse res = await TwitchHelper.GetGqlClips(currentChannel, period, currentCursor, 50);
+                GqlClipSearchResponse res = await KickHelper.GetGqlClips(currentChannel, period, currentCursor, 50);
                 videoList.Clear();
                 if (res.data.user != null)
                 {

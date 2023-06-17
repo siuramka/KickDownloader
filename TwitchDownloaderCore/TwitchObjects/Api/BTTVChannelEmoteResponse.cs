@@ -23,7 +23,7 @@ namespace TwitchDownloaderCore.TwitchObjects.Api
         public User user { get; set; }
     }
 
-    public class User
+    public partial class User
     {
         public string id { get; set; }
         public string name { get; set; }

@@ -157,7 +157,7 @@ namespace TwitchDownloaderWPF
                 else if (downloadType == DownloadType.Clip)
                 {
                     string clipId = downloadId;
-                    GqlClipResponse clipInfo = await TwitchHelper.GetClipInfo(clipId);
+                    GqlClipResponse clipInfo = await KickHelper.GetClipInfo(clipId);
 
                     try
                     {

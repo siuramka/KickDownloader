@@ -32,7 +32,7 @@ namespace TwitchDownloaderCore
 
         public async Task DownloadAsync(IProgress<ProgressReport> progress, CancellationToken cancellationToken)
         {
-            TwitchHelper.CleanupUnmanagedCacheFiles(downloadOptions.TempFolder, progress);
+            KickHelper.CleanupUnmanagedCacheFiles(downloadOptions.TempFolder, progress);
 
             string downloadFolder = Path.Combine(
                 downloadOptions.TempFolder,
@@ -44,8 +44,8 @@ namespace TwitchDownloaderCore
             {
                 ServicePointManager.DefaultConnectionLimit = downloadOptions.DownloadThreads;
 
-                GqlVideoResponse videoInfoResponse = await TwitchHelper.GetVideoInfo(downloadOptions.Id);
-                if (videoInfoResponse.data.video == null)
+                var videoInfoResponse = await KickHelper.GetVideoInfo(downloadOptions.Id.ToString());
+                if (videoInfoResponse.id == null)
                 {
                     throw new NullReferenceException("Invalid VOD, deleted/expired VOD possibly?");
                 }
@@ -62,7 +62,7 @@ namespace TwitchDownloaderCore
 
                 if (Directory.Exists(downloadFolder))
                     Directory.Delete(downloadFolder, true);
-                TwitchHelper.CreateDirectory(downloadFolder);
+                KickHelper.CreateDirectory(downloadFolder);
 
                 progress.Report(new ProgressReport(ReportType.NewLineStatus, "Downloading 0% [2/4]"));
 
@@ -108,13 +108,13 @@ namespace TwitchDownloaderCore
                 double seekDuration = Math.Round(downloadOptions.CropEndingTime - seekTime);
 
                 string metadataPath = Path.Combine(downloadFolder, "metadata.txt");
-                await FfmpegMetadata.SerializeAsync(metadataPath, videoInfoResponse.data.video.owner.displayName, startOffset, downloadOptions.Id,
-                    videoInfoResponse.data.video.title, videoInfoResponse.data.video.createdAt, videoChapterResponse.data.video.moments.edges, cancellationToken);
+                await FfmpegMetadata.SerializeAsync(metadataPath, "test", startOffset, downloadOptions.Id,
+                    "yep", videoInfoResponse.created_at, videoChapterResponse.data.video.moments.edges, cancellationToken);
 
                 var finalizedFileDirectory = Directory.GetParent(Path.GetFullPath(downloadOptions.Filename))!;
                 if (!finalizedFileDirectory.Exists)
                 {
-                    TwitchHelper.CreateDirectory(finalizedFileDirectory.FullName);
+                    KickHelper.CreateDirectory(finalizedFileDirectory.FullName);
                 }
 
                 int ffmpegExitCode;
@@ -310,7 +310,7 @@ namespace TwitchDownloaderCore
 
         private async Task<string> GetPlaylistUrl()
         {
-            GqlVideoTokenResponse accessToken = await TwitchHelper.GetVideoToken(downloadOptions.Id, downloadOptions.Oauth);
+            GqlVideoTokenResponse accessToken = await KickHelper.GetVideoToken(downloadOptions.Id, downloadOptions.Oauth);
 
             if (accessToken.data.videoPlaybackAccessToken is null)
             {

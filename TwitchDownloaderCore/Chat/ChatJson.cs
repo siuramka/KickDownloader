@@ -126,7 +126,7 @@ namespace TwitchDownloaderCore.Chat
             if (chatRoot.streamer is null)
             {
                 var assumedId = int.Parse(chatRoot.video.user_id ?? chatRoot.comments.FirstOrDefault()?.channel_id ?? "0");
-                var assumedName = chatRoot.video.user_name ?? await TwitchHelper.GetStreamerName(assumedId);
+                var assumedName = chatRoot.video.user_name ?? await KickHelper.GetStreamerName(assumedId);
 
                 chatRoot.streamer = new Streamer { id = assumedId, name = assumedName };
             }
@@ -155,7 +155,7 @@ namespace TwitchDownloaderCore.Chat
             var outputDirectory = Directory.GetParent(Path.GetFullPath(filePath))!;
             if (!outputDirectory.Exists)
             {
-                TwitchHelper.CreateDirectory(outputDirectory.FullName);
+                KickHelper.CreateDirectory(outputDirectory.FullName);
             }
 
             await using var fs = File.Create(filePath);
