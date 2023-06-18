@@ -55,17 +55,6 @@ namespace TwitchDownloaderCore
             return await response.Content.ReadFromJsonAsync<GqlVideoTokenResponse>();
         }
 
-        public static async Task<string[]> GetVideoPlaylist(int videoId, string token, string sig)
-        {
-            var request = new HttpRequestMessage()
-            {
-                RequestUri = new Uri(String.Format("http://usher.ttvnw.net/vod/{0}?nauth={1}&nauthsig={2}&allow_source=true&player=twitchweb", videoId, token, sig)),
-                Method = HttpMethod.Get
-            };
-            request.Headers.Add("Client-ID", "kimne78kx3ncx6brgo4mv6wki5h1ko");
-            string playlist = await (await httpClient.SendAsync(request)).Content.ReadAsStringAsync();
-            return playlist.Split('\n', StringSplitOptions.RemoveEmptyEntries);
-        }
 
         public static async Task<GqlClipResponse> GetClipInfo(object clipId)
         {

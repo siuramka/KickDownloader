@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.Tools;
+using TwitchDownloaderCore.TwitchObjects.Api;
 using TwitchDownloaderCore.TwitchObjects.Gql;
 
 namespace TwitchDownloaderCore
@@ -43,14 +44,14 @@ namespace TwitchDownloaderCore
             try
             {
                 ServicePointManager.DefaultConnectionLimit = downloadOptions.DownloadThreads;
-
-                var videoInfoResponse = await KickHelper.GetVideoInfo(downloadOptions.Id.ToString());
-                if (videoInfoResponse.id == null)
-                {
-                    throw new NullReferenceException("Invalid VOD, deleted/expired VOD possibly?");
-                }
-
-                GqlVideoChapterResponse videoChapterResponse = await TwitchHelper.GetVideoChapters(downloadOptions.Id);
+                var test = downloadOptions.Id;
+                var videoInfoResponse = await KickHelper.GetVideoInfo(downloadOptions.Id);
+                // if (videoInfoResponse.id == null)
+                // {
+                //     throw new NullReferenceException("Invalid VOD, deleted/expired VOD possibly?");
+                // }
+//doing this now
+                // GqlVideoChapterResponse videoChapterResponse = await TwitchHelper.GetVideoChapters(downloadOptions.Id); this gets chapets or videos i.e gta v -> dota 2 -> leag etc
 
                 string playlistUrl = await GetPlaylistUrl();
                 string baseUrl = playlistUrl.Substring(0, playlistUrl.LastIndexOf("/") + 1);
@@ -109,7 +110,7 @@ namespace TwitchDownloaderCore
 
                 string metadataPath = Path.Combine(downloadFolder, "metadata.txt");
                 await FfmpegMetadata.SerializeAsync(metadataPath, "test", startOffset, downloadOptions.Id,
-                    "yep", videoInfoResponse.created_at, videoChapterResponse.data.video.moments.edges, cancellationToken);
+                    "yep", videoInfoResponse.created_at, null, cancellationToken);
 
                 var finalizedFileDirectory = Directory.GetParent(Path.GetFullPath(downloadOptions.Filename))!;
                 if (!finalizedFileDirectory.Exists)
@@ -273,7 +274,7 @@ namespace TwitchDownloaderCore
                 vodAge = (DateTimeOffset.UtcNow - DateTimeOffset.Parse(videoChunks.First(x => x.StartsWith("#ID3-EQUIV-TDTG:")).Replace("#ID3-EQUIV-TDTG:", ""))).TotalHours;
             }
             catch { }
-
+//doing this
             for (int i = 0; i < videoChunks.Length; i++)
             {
                 if (videoChunks[i].StartsWith("#EXTINF"))
@@ -310,35 +311,30 @@ namespace TwitchDownloaderCore
 
         private async Task<string> GetPlaylistUrl()
         {
-            GqlVideoTokenResponse accessToken = await KickHelper.GetVideoToken(downloadOptions.Id, downloadOptions.Oauth);
-
-            if (accessToken.data.videoPlaybackAccessToken is null)
-            {
-                throw new NullReferenceException("Invalid VOD, deleted/expired VOD possibly?");
-            }
-
-            string[] videoPlaylist = await TwitchHelper.GetVideoPlaylist(downloadOptions.Id, accessToken.data.videoPlaybackAccessToken.value, accessToken.data.videoPlaybackAccessToken.signature);
-            if (videoPlaylist[0].Contains("vod_manifest_restricted"))
-            {
-                throw new NullReferenceException("Insufficient access to VOD, OAuth may be required.");
-            }
+            VideoResponse taskVideoInfo = await KickHelper.GetVideoInfo(downloadOptions.Id);
+            string[] videoPlaylist = await KickHelper.GetVideoPlaylist(taskVideoInfo.source);
+            // if (videoPlaylist[0].Contains("vod_manifest_restricted"))
+            // {
+            //     throw new NullReferenceException("Insufficient access to VOD, OAuth may be required.");
+            // }
 
             List<KeyValuePair<string, string>> videoQualities = new List<KeyValuePair<string, string>>();
-
             for (int i = 0; i < videoPlaylist.Length; i++)
             {
                 if (videoPlaylist[i].Contains("#EXT-X-MEDIA"))
                 {
                     string lastPart = videoPlaylist[i].Substring(videoPlaylist[i].IndexOf("NAME=\"") + 6);
-                    string stringQuality = lastPart.Substring(0, lastPart.IndexOf("\""));
+                    string stringQuality = lastPart.Substring(0, lastPart.IndexOf('"'));
 
+                    string tempUrl = taskVideoInfo.source;
+                    string streamUrl = tempUrl.Replace("master.m3u8", videoPlaylist[i + 2]);
+                        
                     if (!videoQualities.Any(x => x.Key.Equals(stringQuality)))
                     {
-                        videoQualities.Add(new KeyValuePair<string, string>(stringQuality, videoPlaylist[i + 2]));
+                        videoQualities.Add(new KeyValuePair<string, string>(stringQuality, streamUrl));
                     }
                 }
             }
-
             if (downloadOptions.Quality != null && videoQualities.Any(x => x.Key.StartsWith(downloadOptions.Quality)))
             {
                 return videoQualities.First(x => x.Key.StartsWith(downloadOptions.Quality)).Value;

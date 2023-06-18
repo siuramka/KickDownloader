@@ -26,7 +26,7 @@ public class PuppeteerHttpService
         public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null)
         {
             var browserFetcher = await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
-            return new PuppeteerHttpService(launchOptions ?? new LaunchOptions {Headless = true}, baseUrl);
+            return new PuppeteerHttpService(launchOptions ?? new LaunchOptions {Headless = false}, baseUrl);
         }
         /// <summary>
         /// 
@@ -48,7 +48,8 @@ public class PuppeteerHttpService
                 
                 string content = await page.EvaluateExpressionAsync<string>("document.body.innerText"); //get inner text/text as puppeteer serializes html content
 
-                await page.DisposeAsync();
+                // await browser.CloseAsync();
+                // await page.DisposeAsync();
                 await browser.DisposeAsync();
                 var jsonObject = JsonConvert.DeserializeObject<T>(content);
 

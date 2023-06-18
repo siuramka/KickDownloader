@@ -400,7 +400,7 @@ namespace TwitchDownloaderWPF
                                 VideoDownloadOptions downloadOptions = new VideoDownloadOptions();
                                 downloadOptions.Oauth = Settings.Default.OAuth;
                                 downloadOptions.TempFolder = Settings.Default.TempPath;
-                                downloadOptions.Id = int.Parse(dataList[i].Id);
+                                downloadOptions.Id = dataList[i].Id;
                                 downloadOptions.FfmpegPath = "ffmpeg";
                                 downloadOptions.CropBeginning = false;
                                 downloadOptions.CropEnding = false;

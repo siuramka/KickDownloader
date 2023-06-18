@@ -124,7 +124,7 @@ namespace TwitchDownloaderWPF
                         int.TryParse(bandwithString, out bandwidth);
 
                         string tempUrl = taskVideoInfo.Result.source;
-                        string streamUrl = tempUrl.Replace("/master.m3u8", playlist[i + 2]);
+                        string streamUrl = tempUrl.Replace("master.m3u8", playlist[i + 2]);
                         
                         if (!videoQualties.ContainsKey(stringQuality))
                         {
@@ -205,7 +205,7 @@ namespace TwitchDownloaderWPF
                     checkEnd.IsChecked == true ? new TimeSpan((int)numEndHour.Value, (int)numEndMinute.Value, (int)numEndSecond.Value) : vodLength) + ".mp4"),
                 Oauth = TextOauth.Text,
                 Quality = GetQualityWithoutSize(comboQuality.Text).ToString(),
-                Id = 123,
+                Id = currentVideoId,
                 CropBeginning = (bool)checkStart.IsChecked,
                 CropBeginningTime = (int)(new TimeSpan((int)numStartHour.Value, (int)numStartMinute.Value, (int)numStartSecond.Value).TotalSeconds),
                 CropEnding = (bool)checkEnd.IsChecked,

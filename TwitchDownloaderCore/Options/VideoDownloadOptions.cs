@@ -2,7 +2,7 @@
 {
     public class VideoDownloadOptions
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Quality { get; set; }
         public string Filename { get; set; }
         public bool CropBeginning { get; set; }
