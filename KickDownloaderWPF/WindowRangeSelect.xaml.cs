@@ -3,9 +3,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using TwitchDownloaderCore;
-using static TwitchDownloaderWPF.App;
+using static KickDownloaderWPF.App;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for WindowRangeSelect.xaml

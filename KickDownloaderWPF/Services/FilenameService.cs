@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using TwitchDownloaderCore.Tools;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public static class FilenameService
     {

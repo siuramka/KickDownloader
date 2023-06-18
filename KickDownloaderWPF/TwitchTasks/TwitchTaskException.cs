@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TwitchDownloaderWPF.TwitchTasks
+namespace KickDownloaderWPF.TwitchTasks
 {
     public class TwitchTaskException
     {

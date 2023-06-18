@@ -18,11 +18,11 @@ using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.Tools;
 using TwitchDownloaderCore.TwitchObjects.Api;
 using TwitchDownloaderCore.TwitchObjects.Gql;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
 using WpfAnimatedGif;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for PageVodDownload.xaml
@@ -217,7 +217,8 @@ namespace TwitchDownloaderWPF
                 Filename = filename ?? Path.Combine(folder, FilenameService.GetFilename(Settings.Default.TemplateVod, textTitle.Text, currentVideoId.ToString(), currentVideoTime, textStreamer.Text,
                     checkStart.IsChecked == true ? new TimeSpan((int)numStartHour.Value, (int)numStartMinute.Value, (int)numStartSecond.Value) : TimeSpan.Zero,
                     checkEnd.IsChecked == true ? new TimeSpan((int)numEndHour.Value, (int)numEndMinute.Value, (int)numEndSecond.Value) : vodLength) + ".mp4"),
-                Oauth = TextOauth.Text,
+                // Oauth = TextOauth.Text,
+                Oauth = "",
                 Quality = GetQualityWithoutSize(comboQuality.Text).ToString(),
                 Id = currentVideoId,
                 CropBeginning = (bool)checkStart.IsChecked,
@@ -371,7 +372,7 @@ namespace TwitchDownloaderWPF
             SetEnabledCropEnd(false);
             WebRequest.DefaultWebProxy = null;
             numDownloadThreads.Value = Settings.Default.VodDownloadThreads;
-            TextOauth.Text = Settings.Default.OAuth;
+            // TextOauth.Text = Settings.Default.OAuth;
         }
 
         private void numDownloadThreads_ValueChanged(object sender, HandyControl.Data.FunctionEventArgs<double> e)
@@ -387,7 +388,8 @@ namespace TwitchDownloaderWPF
         {
             if (this.IsInitialized)
             {
-                Settings.Default.OAuth = TextOauth.Text;
+                // Settings.Default.OAuth = TextOauth.Text;
+                Settings.Default.OAuth = "";
                 Settings.Default.Save();
             }
         }

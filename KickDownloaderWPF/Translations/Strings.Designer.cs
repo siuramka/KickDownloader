@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TwitchDownloaderWPF.Translations {
+namespace KickDownloaderWPF.Translations {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace TwitchDownloaderWPF.Translations {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TwitKickDownloaderWPFPF.Translations.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KickDownloaderWPF.Translations.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -96,7 +96,7 @@ namespace TwitchDownloaderWPF.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IKickDownloaderWPFPF not available in your native language? Click to learn how to help translate!.
+        ///   Looks up a localized string similar to Is KickDownloaderWPF not available in your native language? Click to learn how to help translate!.
         /// </summary>
         public static string ApplicationLanguageTooltip {
             get {

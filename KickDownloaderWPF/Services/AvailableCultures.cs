@@ -1,4 +1,4 @@
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public record struct Culture(string Code, string NativeName);
 

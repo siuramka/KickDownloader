@@ -18,11 +18,11 @@ using TwitchDownloaderCore;
 using TwitchDownloaderCore.Chat;
 using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.TwitchObjects;
-using TwitchDownloaderWPF.Properties;
+using KickDownloaderWPF.Properties;
 using WpfAnimatedGif;
 using MessageBox = System.Windows.MessageBox;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for PageChatRender.xaml

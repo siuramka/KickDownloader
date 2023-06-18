@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     // native as in native to Windows
     public static class NativeFunctions

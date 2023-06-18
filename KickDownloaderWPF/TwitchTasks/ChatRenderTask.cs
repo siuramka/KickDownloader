@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using TwitchDownloaderCore;
 using TwitchDownloaderCore.Options;
 
-namespace TwitchDownloaderWPF.TwitchTasks
+namespace KickDownloaderWPF.TwitchTasks
 {
     class ChatRenderTask : ITwitchTask
     {

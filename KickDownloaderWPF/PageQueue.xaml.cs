@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using TwitchDownloaderWPF.TwitchTasks;
-using TwitchDownloaderWPF.Properties;
+using KickDownloaderWPF.TwitchTasks;
+using KickDownloaderWPF.Properties;
 using System.Diagnostics;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for PageQueue.xaml

@@ -23,7 +23,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 	<EnableNETAnalyzers>false</EnableNETAnalyzers>
 	<Platforms>AnyCPU;x64</Platforms>
-	<RootNamespace>TwitchDownloaderWPF</RootNamespace>
+	<RootNamespace>KickDownloaderWPF</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
@@ -59,9 +59,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Themes\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\HACKERMANS.gif" />

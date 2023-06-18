@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      xmlns:local="clr-namespace:TwitchDownloaderWPF"
+      xmlns:local="clr-namespace:KickDownloaderWPF"
       xmlns:lex="http://wpflocalizeextension.codeplex.com"
       lex:LocalizeDictionary.DesignCulture=""
       lex:ResxLocalizationProvider.DefaultAssembly="KickDownloaderWPF"
@@ -13,7 +13,7 @@
       xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:hc="https://handyorg.github.io/handycontrol"
-      x:Class="TwitchDownloaderWPF.PageVodDownload"
+      x:Class="KickDownloaderWPF.PageVodDownload"
       mc:Ignorable="d"
       d:DesignHeight="400" d:DesignWidth="800"
       Title="PageVodDownload" Initialized="Page_Initialized" Loaded="Page_Loaded">
@@ -64,7 +64,7 @@
                 <TextBlock Text="{lex:Loc Quality}" HorizontalAlignment="Right" Margin="0,15,0,0" Foreground="{DynamicResource AppText}" />
                 <TextBlock Text="{lex:Loc CropVideo}" HorizontalAlignment="Right" Margin="0,19,0,0" Foreground="{DynamicResource AppText}" />
                 <TextBlock Text="{lex:Loc DownloadThreads}" HorizontalAlignment="Right" Margin="0,50,0,0" Foreground="{DynamicResource AppText}" />
-                <TextBlock HorizontalAlignment="Right" Margin="0,22,0,0" Foreground="{DynamicResource AppText}"><Run Text="{lex:Loc Oauth}"/><Hyperlink NavigateUri="https://www.youtube.com/watch?v=1MBsUoFGuls" RequestNavigate="Hyperlink_RequestNavigate" ToolTipService.ShowDuration="30000" Foreground="{DynamicResource AppHyperlink}"><Hyperlink.ToolTip><Run Text="{lex:Loc OauthTooltip}"/></Hyperlink.ToolTip>(?)</Hyperlink>:</TextBlock>
+                <!-- <TextBlock HorizontalAlignment="Right" Margin="0,22,0,0" Foreground="{DynamicResource AppText}"><Run Text="{lex:Loc Oauth}"/><Hyperlink NavigateUri="https://www.youtube.com/watch?v=1MBsUoFGuls" RequestNavigate="Hyperlink_RequestNavigate" ToolTipService.ShowDuration="30000" Foreground="{DynamicResource AppHyperlink}"><Hyperlink.ToolTip><Run Text="{lex:Loc OauthTooltip}"/></Hyperlink.ToolTip>(?)</Hyperlink>:</TextBlock> -->
             </StackPanel>
             <StackPanel>
                 <TextBlock x:Name="labelLength" Text="0:0:0" Margin="5,0,0,0" Foreground="{DynamicResource AppText}" />
@@ -85,11 +85,11 @@
                         <hc:NumericUpDown Margin="3,-1,0,0" Minimum="0" Maximum="60" Value="0" x:Name="numEndSecond" ValueChanged="numEndSecond_ValueChanged" Background="{DynamicResource AppElementBackground}" BorderBrush="{DynamicResource AppElementBorder}" Foreground="{DynamicResource AppText}" />
                     </StackPanel>
                     <hc:NumericUpDown Margin="2,5,0,0" Minimum="1" Value="4" Maximum="10" x:Name="numDownloadThreads" HorizontalAlignment="Left" ValueChanged="numDownloadThreads_ValueChanged" Background="{DynamicResource AppElementBackground}" BorderBrush="{DynamicResource AppElementBorder}" Foreground="{DynamicResource AppText}" />
-                    <TextBox x:Name="TextOauth" Margin="0,8,3,3" MinWidth="200" MaxWidth="400" TextChanged="TextOauth_TextChanged" Background="{DynamicResource AppElementBackground}" BorderBrush="{DynamicResource AppElementBorder}" Foreground="{DynamicResource AppText}" />
+                    <!-- <TextBox x:Name="TextOauth" Margin="0,8,3,3" MinWidth="200" MaxWidth="400" TextChanged="TextOauth_TextChanged" Background="{DynamicResource AppElementBackground}" BorderBrush="{DynamicResource AppElementBorder}" Foreground="{DynamicResource AppText}" /> -->
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom">
             <hc:SplitButton x:Name="SplitBtnDownload" Height="40" Width="120" Content="{lex:Loc Download}" Click="SplitBtnDownloader_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}" >
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>

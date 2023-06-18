@@ -14,11 +14,11 @@ using TwitchDownloaderCore.Chat;
 using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.Tools;
 using TwitchDownloaderCore.TwitchObjects.Gql;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
 using WpfAnimatedGif;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     public enum DownloadType { Clip, Video }
     /// <summary>

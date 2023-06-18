@@ -6,11 +6,11 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using TwitchDownloaderCore;
 using TwitchDownloaderCore.TwitchObjects.Gql;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.TwitchTasks;
-using static TwitchDownloaderWPF.App;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.TwitchTasks;
+using static KickDownloaderWPF.App;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for WindowUrlList.xaml

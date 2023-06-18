@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TwitchDownloaderWPF.TwitchTasks
+namespace KickDownloaderWPF.TwitchTasks
 {
     public enum TwitchTaskStatus
     {

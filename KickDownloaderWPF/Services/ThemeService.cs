@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Xml.Serialization;
-using TwitchDownloaderWPF.Models;
-using TwitchDownloaderWPF.Properties;
+using KickDownloaderWPF.Models;
+using KickDownloaderWPF.Properties;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public class ThemeService
     {

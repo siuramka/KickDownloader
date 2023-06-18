@@ -678,7 +678,7 @@
     <value>批量下载剪辑</value>
   </data>
   <data name="ApplicationLanguageTooltip" xml:space="preserve">
-    <value>TwitchDownloaderWPF在您的母语中不可用吗？点击了解如何帮助翻译！</value>
+    <value>KickDownloaderWPF在您的母语中不可用吗？点击了解如何帮助翻译！</value>
   </data>
   <data name="InvalidFolderPath" xml:space="preserve">
     <value>无效目录路径</value>

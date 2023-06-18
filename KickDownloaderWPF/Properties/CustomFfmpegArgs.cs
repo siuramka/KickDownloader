@@ -1,4 +1,4 @@
-﻿namespace TwitchDownloaderWPF.Properties
+﻿namespace KickDownloaderWPF.Properties
 {
     public class CustomFfmpegArgs
     {

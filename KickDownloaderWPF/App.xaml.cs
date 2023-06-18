@@ -2,11 +2,11 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
-using TwitchDownloaderWPF.Translations;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
+using KickDownloaderWPF.Translations;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml

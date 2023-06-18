@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public class DefaultThemeService
     {
@@ -10,7 +10,7 @@ namespace TwitchDownloaderWPF.Services
         {
             var success = true;
             var resourceNames = GetResourceNames();
-            var themeResourcePaths = resourceNames.Where(i => i.StartsWith($"{nameof(TwitchDownloaderWPF)}.Themes."));
+            var themeResourcePaths = resourceNames.Where(i => i.StartsWith($"{nameof(KickDownloaderWPF)}.Themes."));
 
             foreach (var themeResourcePath in themeResourcePaths)
             {

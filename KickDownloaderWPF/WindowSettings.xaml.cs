@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
-using static TwitchDownloaderWPF.App;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
+using static KickDownloaderWPF.App;
 using MessageBox = System.Windows.MessageBox;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for SettingsPage.xaml

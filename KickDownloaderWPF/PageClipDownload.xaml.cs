@@ -12,11 +12,11 @@ using System.Windows.Media.Imaging;
 using TwitchDownloaderCore;
 using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.TwitchObjects.Gql;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
 using WpfAnimatedGif;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for PageClipDownload.xaml

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace TwitchDownloaderWPF.Models
+namespace KickDownloaderWPF.Models
 {
 	[XmlRoot(ElementName = "ResourceDictionary", Namespace = "http://schemas.microsoft.com/winfx/2006/xaml/presentation")]
 	public class ResourceDictionaryModel

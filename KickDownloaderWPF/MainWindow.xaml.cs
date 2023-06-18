@@ -3,11 +3,11 @@ using System;
 using System.IO;
 using System.Net;
 using System.Windows;
-using TwitchDownloaderWPF.Properties;
+using KickDownloaderWPF.Properties;
 using Xabe.FFmpeg.Downloader;
-using static TwitchDownloaderWPF.App;
+using static KickDownloaderWPF.App;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -72,13 +72,13 @@ namespace TwitchDownloaderWPF
             if (!File.Exists("ffmpeg.exe"))
                 await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Full);
 
-            Version currentVersion = new Version("1.53.0");
-            Title = $"Twitch Downloader v{currentVersion}";
+            Version currentVersion = new Version("1.0.0");
+            Title = $"Kick Downloader v{currentVersion}";
             AutoUpdater.InstalledVersion = currentVersion;
-#if !DEBUG
-            AutoUpdater.RunUpdateAsAdmin = false;
-            AutoUpdater.Start("https://downloader-update.twitcharchives.workers.dev");
-#endif
+// #if !DEBUG
+//             AutoUpdater.RunUpdateAsAdmin = false;
+//             AutoUpdater.Start("https://downloader-update.twitcharchives.workers.dev");
+// #endif
         }
     }
 }

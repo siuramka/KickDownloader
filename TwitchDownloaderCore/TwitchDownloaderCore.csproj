@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RepositoryUrl>https://github.com/lay295/TwitchDownloader</RepositoryUrl>
+    <RepositoryUrl>https://github.com/siuramka/KickDownloaderSharp</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Authors>Lewis Pardo</Authors>
+    <Authors>TwitchDl: Lewis Pardo, KickDl Siuramka</Authors>
     <Version>1.1.6</Version>
     <Platforms>AnyCPU;x64</Platforms>
     <LangVersion>default</LangVersion>

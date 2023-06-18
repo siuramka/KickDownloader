@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 
-namespace TwitchDownloaderWPF.TwitchTasks
+namespace KickDownloaderWPF.TwitchTasks
 {
     public class TaskData
     {

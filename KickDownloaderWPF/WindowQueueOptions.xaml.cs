@@ -7,13 +7,13 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using TwitchDownloaderCore.Chat;
 using TwitchDownloaderCore.Options;
-using TwitchDownloaderWPF.Properties;
-using TwitchDownloaderWPF.Services;
-using TwitchDownloaderWPF.Translations;
-using TwitchDownloaderWPF.TwitchTasks;
-using static TwitchDownloaderWPF.App;
+using KickDownloaderWPF.Properties;
+using KickDownloaderWPF.Services;
+using KickDownloaderWPF.Translations;
+using KickDownloaderWPF.TwitchTasks;
+using static KickDownloaderWPF.App;
 
-namespace TwitchDownloaderWPF
+namespace KickDownloaderWPF
 {
     /// <summary>
     /// Interaction logic for QueueOptions.xaml

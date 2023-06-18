@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public static class ThumbnailService
     {

@@ -3,7 +3,7 @@ using System;
 using System.Management;
 using System.Security.Principal;
 
-namespace TwitchDownloaderWPF.Services
+namespace KickDownloaderWPF.Services
 {
     public class WindowsThemeService : ManagementEventWatcher
     {
