@@ -34,6 +34,11 @@ namespace TwitchDownloaderCore
 
             return videoInfo;
         }
+        public static async Task<string[]> GetTextLines(string url)
+        {
+            string fileLines = await httpClient.GetStringAsync(url);
+            return fileLines.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        }
 
         public static async Task<GqlVideoTokenResponse> GetVideoToken(int videoId, string authToken)
         {

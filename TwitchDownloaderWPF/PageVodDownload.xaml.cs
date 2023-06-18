@@ -135,7 +135,21 @@ namespace TwitchDownloaderWPF
                 }
                 comboQuality.SelectedIndex = 0;
                 
-                vodLength = TimeSpan.FromSeconds(taskVideoInfo.Result.livestream.duration);
+                // the api vod duration is shit i.e wrong. It spits for example 101000 (miliseconds?) which is 1:41min, but in reality its 0:36min
+                // for longer vods its also innacurate: ~20-30 minutes missmatch
+                // gonna have to get time from the m3u8 stream unfortunately , making unecessary api cals ;/
+                
+                var firstVideoStreamUrl = videoQualties.First();
+                var value = firstVideoStreamUrl.Value;
+                string[] lines = await KickHelper.GetTextLines(value.url);
+
+                string timeLine = lines.First(x => x.Contains("#EXT-X-TWITCH-TOTAL-SECS"));
+                string timeSeconds = timeLine.Split(':').Last();
+                decimal timeSecondsValue = decimal.Parse(timeSeconds);
+                int timeSecondsInt = Decimal.ToInt32(timeSecondsValue);
+                    
+                vodLength = TimeSpan.FromSeconds(timeSecondsInt);
+
                 textStreamer.Text = taskVideoInfo.Result.livestream.channel.slug;
                 textTitle.Text = taskVideoInfo.Result.livestream.session_title;
                 var videoCreatedAt = taskVideoInfo.Result.created_at;
