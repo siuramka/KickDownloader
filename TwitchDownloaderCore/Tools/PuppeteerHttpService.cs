@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.IO;
+using Newtonsoft.Json;
 using PuppeteerExtraSharp;
 using PuppeteerExtraSharp.Plugins.ExtraStealth;
 using PuppeteerSharp;
@@ -22,11 +24,27 @@ public class PuppeteerHttpService
         {
             _puppeteerExtra.Use(new StealthPlugin());
         }
-
-        public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null)
+        
+        public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null, IProgress<ProgressReport>?  progress = null)
         {
-            var browserFetcher = await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+            var browserFetcher = new BrowserFetcher();
+            if (!IsChromiumInstalled(BrowserFetcher.DefaultChromiumRevision))
+            {
+                progress.Report(new ProgressReport(ReportType.SameLineStatus, "Downloading chromium [1/2]"));
+                await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+                progress.Report(new ProgressReport(ReportType.SameLineStatus, "Downlaoded chromium! [2/2]"));
+                progress.Report(new ProgressReport() { ReportType = ReportType.Percent, Data = 100 });
+
+            }
+
             return new PuppeteerHttpService(launchOptions ?? new LaunchOptions {Headless = false}, baseUrl);
+        }
+
+        private static bool IsChromiumInstalled(string revision)
+        {
+            var browserFetcher = new BrowserFetcher();
+            var path = browserFetcher.GetExecutablePath(revision);
+            return File.Exists(path);
         }
         /// <summary>
         /// 

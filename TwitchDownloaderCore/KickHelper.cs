@@ -27,9 +27,9 @@ namespace TwitchDownloaderCore
         private static readonly HttpClient httpClient = new HttpClient();
         private static readonly string[] bttvZeroWidth = { "SoSnowy", "IceCold", "SantaHat", "TopHat", "ReinDeer", "CandyCane", "cvMask", "cvHazmat" };
 
-        public static async Task<VideoResponse> GetVideoInfo(string id)
+        public static async Task<VideoResponse> GetVideoInfo(string id, IProgress<ProgressReport>? progress = null)
         {
-            var service = await PuppeteerHttpService.CreateAsync(_baseUrl);
+            var service = await PuppeteerHttpService.CreateAsync(_baseUrl, progress: progress);
             VideoResponse videoInfo = await service.GetJsonAsync<VideoResponse>($"api/v1/video/{id}");
 
             return videoInfo;
@@ -39,23 +39,7 @@ namespace TwitchDownloaderCore
             string fileLines = await httpClient.GetStringAsync(url);
             return fileLines.Split('\n', StringSplitOptions.RemoveEmptyEntries);
         }
-
-        public static async Task<GqlVideoTokenResponse> GetVideoToken(int videoId, string authToken)
-        {
-            var request = new HttpRequestMessage()
-            {
-                RequestUri = new Uri("https://gql.twitch.tv/gql"),
-                Method = HttpMethod.Post,
-                Content = new StringContent("{\"operationName\":\"PlaybackAccessToken_Template\",\"query\":\"query PlaybackAccessToken_Template($login: String!, $isLive: Boolean!, $vodID: ID!, $isVod: Boolean!, $playerType: String!) {  streamPlaybackAccessToken(channelName: $login, params: {platform: \\\"web\\\", playerBackend: \\\"mediaplayer\\\", playerType: $playerType}) @include(if: $isLive) {    value    signature    __typename  }  videoPlaybackAccessToken(id: $vodID, params: {platform: \\\"web\\\", playerBackend: \\\"mediaplayer\\\", playerType: $playerType}) @include(if: $isVod) {    value    signature    __typename  }}\",\"variables\":{\"isLive\":false,\"login\":\"\",\"isVod\":true,\"vodID\":\"" + videoId + "\",\"playerType\":\"embed\"}}", Encoding.UTF8, "application/json")
-            };
-            request.Headers.Add("Client-ID", "kimne78kx3ncx6brgo4mv6wki5h1ko");
-            if (authToken != null && authToken != "")
-                request.Headers.Add("Authorization", "OAuth " + authToken);
-            using var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<GqlVideoTokenResponse>();
-        }
-
+        
         public static async Task<string[]> GetVideoPlaylist(string masterSourceUrl)
         {
             var request = new HttpRequestMessage()
