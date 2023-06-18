@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,604 +118,605 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Accept" xml:space="preserve">
-    <value>Принять</value>
+    <value>Kabul et</value>
   </data>
   <data name="AddToQueue" xml:space="preserve">
-    <value>Добавить в очередь</value>
+    <value>Sıraya ekle</value>
   </data>
   <data name="AlphaNotSupportedByCodec" xml:space="preserve">
-    <value>Вы выбрали альфа канал(прозрачность) для неподдерживаемого контейнера/кодека. Удалите прозрачность либо используйте кодек MOV + RLE/PRORES or WEBM + VP8/VP9</value>
+    <value>Bir bir alfa kanalı (şeffaflık) desteklemeyen bir container/codec seçtiniz. Saydamlığı kaldırın veya MOV ve RLE/PRORES ile kodlayın. (dosya boyutu büyük olacaktır.)</value>
   </data>
   <data name="ApplicationTheme" xml:space="preserve">
-    <value>Тема  </value>
+    <value>Tema </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="ApplicationThemeTooltip" xml:space="preserve">
-    <value>Нажми чтобы узнать как создать свою тему!</value>
+    <value>Kendi temanızı nasıl yapacağınızı öğrenmek için tıklayın!</value>
   </data>
   <data name="AvailableParameters" xml:space="preserve">
-    <value>Доступные параметры:</value>
+    <value>Mevcut parametreler:</value>
   </data>
   <data name="BackgroundColor" xml:space="preserve">
-    <value>Цвет фона:</value>
+    <value>Arka plan rengi:</value>
   </data>
   <data name="BannedWordsList" xml:space="preserve">
-    <value>Список игнорируемых слов </value>
+    <value>Yasaklı Kelimeler Listesi </value>
     <comment>Leaving a trailing space</comment>
   </data>
   <data name="BannedWordsListTooltip" xml:space="preserve">
-    <value>Список игнорируемых слов и фраз - разделенных запятой, пробелы вокруг запятых игнорируются, НЕ чувствительно к регистру.</value>
+    <value>Yasaklı kelimelerin veya kelime öbeklerinin listesi - virgülle ayrılmış, virgüllerin etrafındaki boşluklar yok sayılır, büyük/küçük harfe duyarlı DEĞİLDİR.</value>
   </data>
   <data name="Browse" xml:space="preserve">
-    <value>Обзор</value>
+    <value>Gözat</value>
   </data>
   <data name="BttvEmotes" xml:space="preserve">
-    <value>BTTV Эмоции:</value>
+    <value>BTTV Emojileri:</value>
   </data>
   <data name="CacheFolder" xml:space="preserve">
-    <value>Папка чата:</value>
+    <value>Önbellek Klasörü:</value>
   </data>
   <data name="TemplateChats" xml:space="preserve">
-    <value>Чаты:</value>
+    <value>Sohbetler:</value>
   </data>
   <data name="ChatBadgeFilter" xml:space="preserve">
-    <value>Фильтр значков чата:</value>
+    <value>Sohbet Rozeti Filtresi:</value>
   </data>
   <data name="ChatBadges" xml:space="preserve">
-    <value>Значки чата:</value>
+    <value>Sohbet Rozetleri:</value>
   </data>
   <data name="ChatCrop" xml:space="preserve">
-    <value>Обрезать:</value>
+    <value>Kes:</value>
   </data>
   <data name="ChatDownload" xml:space="preserve">
-    <value>Скачать чат</value>
+    <value>Sohbeti İndir</value>
   </data>
   <data name="ChatDownloads" xml:space="preserve">
-    <value>Загрузки чата</value>
+    <value>Sohbet İndirmeleri</value>
   </data>
   <data name="ChatFont" xml:space="preserve">
-    <value>Шрифт:</value>
+    <value>Font:</value>
   </data>
   <data name="ChatFontSize" xml:space="preserve">
-    <value>Размер шрифта:</value>
+    <value>Font Boyutu:</value>
   </data>
   <data name="ChatHeight" xml:space="preserve">
-    <value>Высота:</value>
+    <value>Yükseklik:</value>
   </data>
   <data name="ChatRender" xml:space="preserve">
-    <value>Рендер чата</value>
+    <value>Sohbet Oluşturma</value>
   </data>
   <data name="ChatRenders" xml:space="preserve">
-    <value>Рендеры чата</value>
+    <value>Sohbet Oluşturmaları</value>
   </data>
   <data name="ChatUpdate" xml:space="preserve">
-    <value>Обновление чата</value>
+    <value>Sohbet Güncelle</value>
   </data>
   <data name="ChatUpdater" xml:space="preserve">
-    <value>Обновить чат</value>
+    <value>Sohbet Güncelleyici</value>
   </data>
   <data name="ChatWidth" xml:space="preserve">
-    <value>Ширина:</value>
+    <value>Genişlik:</value>
   </data>
   <data name="ClearCache" xml:space="preserve">
-    <value>Очистить</value>
+    <value>Temizle</value>
   </data>
   <data name="ClearCacheConfirmation" xml:space="preserve">
-    <value>Вы уверенны что хотите очистить кэш?\nЭто необходимо только в случае если программа работает неправильно</value>
+    <value>Önbelleğinizi temizlemek istediğinizden emin misiniz?\nBunu yalnızca program düzgün çalışmıyorsa yapmalısınız</value>
   </data>
   <data name="ClipDownload" xml:space="preserve">
-    <value>Скачать клип</value>
+    <value>Klip İndir</value>
   </data>
   <data name="ClipDownloads" xml:space="preserve">
-    <value>Загрузки клипов</value>
+    <value>Klip İndirmeleri</value>
   </data>
   <data name="ClipLinkId" xml:space="preserve">
-    <value>Ссылка/ID клипа:</value>
+    <value>Klip Bağlantısı/ID:</value>
   </data>
   <data name="TemplateClips" xml:space="preserve">
-    <value>Клипы:</value>
+    <value>Klipler:</value>
   </data>
   <data name="CropEnd" xml:space="preserve">
-    <value>Конец</value>
+    <value>Sonu</value>
+    <comment>I added some space as the gui looks broken</comment>
   </data>
   <data name="CropStart" xml:space="preserve">
-    <value>Начало</value>
+    <value>Başı</value>
   </data>
   <data name="CropVideo" xml:space="preserve">
-    <value>Обрезать:</value>
+    <value>Videoyu Kırp:</value>
   </data>
   <data name="DateCustomFormatting" xml:space="preserve">
-    <value>date_custom форматирование основанно на</value>
+    <value>date_custom biçimlendirmesi şuna dayalıdır</value>
   </data>
   <data name="DateCustomFormattingHyperlink" xml:space="preserve">
-    <value>C# строках стандартных форматов даты и времени</value>
+    <value>C# standart tarih ve saat formatı dizeleri</value>
   </data>
   <data name="DeleteConfirmation" xml:space="preserve">
-    <value>Подтвердите удаление</value>
+    <value>Silme Onayı</value>
   </data>
   <data name="DonateTooltip" xml:space="preserve">
-    <value>Часто импользуете программу и хотите поддержать меня? Подарите мне чашечку кофе :)</value>
+    <value>Programı sık sık kullanıyor ve bana destek olmak mı istiyorsunuz? bana kebap ısmarla :)</value>
   </data>
   <data name="Download" xml:space="preserve">
-    <value>Загрузка</value>
+    <value>İndir</value>
   </data>
   <data name="DownloadConnections" xml:space="preserve">
-    <value>Подключения:</value>
+    <value>Bağlantılar:</value>
   </data>
   <data name="DownloadFilenameTemplates" xml:space="preserve">
-    <value>Шаблоны наименований сохраняемых файлов:</value>
+    <value>Dosya Adı Şablonlarını Düzenleyin:</value>
   </data>
   <data name="DownloadFormat" xml:space="preserve">
-    <value>Формат:</value>
+    <value>İndirme Formatı:</value>
   </data>
   <data name="DownloadThreads" xml:space="preserve">
-    <value>Потоков:</value>
+    <value>İndirme Parçacığı:</value>
   </data>
   <data name="EmbedImages" xml:space="preserve">
-    <value>Скачивать изображения </value>
+    <value>Görüntüleri Yerleştir </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="EmbedImagesTooltip" xml:space="preserve">
-    <value>Скачивать эмодзи, значки и приветствия в загружаемый файл для офлайн-рендеринга. Полезно для архивации, размер файла будет больше.</value>
+    <value>Çevrimdışı işleme için indirilen dosyaya birinci taraf emojileri, rozetlerini ve cheeremojileri(bitleri) ekleyin. Arşiv amaçlı kullanışlıdır fakat dosya boyutu daha büyük olacaktır.</value>
   </data>
   <data name="EmbedMissing" xml:space="preserve">
-    <value>Скачивать отсуствующие</value>
+    <value>Eksikleri Yerleştir </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="EmbedMissingTooltip" xml:space="preserve">
-    <value>Скачивать отсутсвующие эмодзи, значки, приветсвия. Уже скачанные изображения не будут затронуты.</value>
+    <value>Eksik emojiler, rozetleri ve cheeremojileri(bitleri) yerleştirir. Halihazırda gömülü olan resimlere dokunulmayacaktır.</value>
   </data>
   <data name="EnqueueDownload" xml:space="preserve">
-    <value>Отправить в очередь загрузок</value>
+    <value>İndirmeyi Sıraya Al</value>
   </data>
   <data name="EnqueueRender" xml:space="preserve">
-    <value>Отправить в очередь рендера</value>
+    <value>Oluşturmayı Sıraya Al</value>
   </data>
   <data name="EnqueueUpdate" xml:space="preserve">
-    <value>Отправить в очередь обновлений</value>
+    <value>Güncellemeyi Sıraya Al</value>
   </data>
   <data name="ErrorLog" xml:space="preserve">
-    <value>ОШИБКА: </value>
+    <value>HATA: </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="FfmpegInputArguments" xml:space="preserve">
-    <value>Input Arguments:</value>
+    <value>Giriş Argümanları:</value>
   </data>
   <data name="FfmpegOptionsHyperlink" xml:space="preserve">
-    <value>Нажмите здесь чтобы узнать больше об опциях Ffmpeg</value>
+    <value>Ffmpeg seçenekleri hakkında bilgi edinmek için buraya tıklayın</value>
   </data>
   <data name="FfmpegOutputArguments" xml:space="preserve">
-    <value>Output Arguments:</value>
+    <value>Çıktı Argümanları:</value>
   </data>
   <data name="FfmpegParameters" xml:space="preserve">
     <value>{fps} {height} {width} {max_int} {save_path}</value>
     <comment>Do not translate</comment>
   </data>
   <data name="FfmpegReset" xml:space="preserve">
-    <value>Сбросить</value>
+    <value>Varsayılanlara dön</value>
   </data>
   <data name="FfzEmotes" xml:space="preserve">
-    <value>FFZ Эмодзи:</value>
+    <value>FFZ Emojileri:</value>
   </data>
   <data name="FilenameTemplateParameters" xml:space="preserve">
     <value>{title} {id} {date} {channel} {date_custom=""} {random_string} {crop_start} {crop_end} {crop_start_custom=""} {crop_end_custom=""}</value>
     <comment>Do not translate</comment>
   </data>
   <data name="FontColor" xml:space="preserve">
-    <value>Цвет шрифта:</value>
+    <value>Font Rengi:</value>
   </data>
   <data name="GenerateMask" xml:space="preserve">
-    <value>Генерировать маску:</value>
+    <value>Maske Oluştur:</value>
   </data>
   <data name="GetInfo" xml:space="preserve">
-    <value>Получить информацию</value>
+    <value>Bilgi al</value>
   </data>
   <data name="HideDonationButton" xml:space="preserve">
-    <value>Скрыть кнопку донатов:</value>
+    <value>Bağış Düğmesini Gizle:</value>
   </data>
   <data name="IgnoreUsersList" xml:space="preserve">
-    <value>Список игнорируемых пользователей </value>
+    <value>Kullanıcı Listesini Yoksay </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="IgnoreUsersListTooltip" xml:space="preserve">
-    <value>Список никнеймов - разделенных запятой, пробелы вокруг запятых игнорируются, НЕ чувствительно к регистру.</value>
+    <value>Kullanıcı adları listesi - virgülle ayrılmış, virgüllerin etrafındaki boşluklar yok sayılır, büyük/küçük harfe duyarlı DEĞİLDİR.</value>
   </data>
   <data name="InvalidClipLinkId" xml:space="preserve">
-    <value>Неправильная ссылка/ID клипа</value>
+    <value>Geçersiz Klip Bağlantısı/ID</value>
   </data>
   <data name="InvalidClipLinkIdMessage" xml:space="preserve">
-    <value>Пожалуйста, введите правильную ссылку/ID клипа\nПример:\nhttps://clips.twitch.tv/ImportantPlausibleMetalOSsloth\nImportantPlausibleMetalOSsloth</value>
+    <value>Lütfen geçerli bir klip Bağlantısı/ID girin\nÖrnek:\nhttps://clips.twitch.tv/ImportantPlausibleMetalOSsloth\nImportantPlausibleMetalOSsloth</value>
   </data>
   <data name="InvalidCropInputs" xml:space="preserve">
-    <value>Неправильные границы обрезки</value>
+    <value>Geçersiz Kırpma Girişleri</value>
   </data>
   <data name="InvalidStartEndTime" xml:space="preserve">
-    <value>Неправильное начальное или конечное время</value>
+    <value>Geçersiz başlangıç veya bitiş zamanı</value>
   </data>
   <data name="InvalidVideoLinkId" xml:space="preserve">
-    <value>Неправильная ссылка/ID видео</value>
+    <value>Geçersiz Video Bağlantısı/ID</value>
   </data>
   <data name="InvalidVideoLinkIdMessage" xml:space="preserve">
-    <value>Пожалуйста, введите правильную ссылку/ID видео\nПример:\nhttps://www.twitch.tv/videos/470741744\n470741744</value>
+    <value>Lütfen geçerli bir video Bağlantısı girin/ID\nÖrnek:\nhttps://www.twitch.tv/videos/470741744\n470741744</value>
   </data>
   <data name="JsonFile" xml:space="preserve">
-    <value>JSON Файл:</value>
+    <value>JSON Dosyası:</value>
   </data>
   <data name="Length" xml:space="preserve">
-    <value>Длинна:</value>
+    <value>Süre:</value>
   </data>
   <data name="ListOfVodsClips" xml:space="preserve">
-    <value>Список Видео/Клипов (одно на строку)</value>
+    <value>VOD/Klip Listesi (Her satıra bir adet)</value>
   </data>
   <data name="LogHeader" xml:space="preserve">
-    <value>Лог:</value>
+    <value>Log:</value>
   </data>
   <data name="MassDownloads" xml:space="preserve">
-    <value>Массовая загрузка</value>
+    <value>Toplu İndirmeler</value>
   </data>
   <data name="Oauth" xml:space="preserve">
-    <value>OAuth (необязательно) </value>
+    <value>OAuth (isteğe bağlı) </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="OAuthTooltip" xml:space="preserve">
-    <value>Необходимо для видео доступных только подписчикам. Все сторонние OAuth токены не будут работать. Нажмите чтобы просмотреть YouTube видеоинструкцию получения OAuth token.</value>
+    <value>Yalnızca yalnızca abone özel VOD'lar için gereklidir. Tüm 3.parti OAuth tokenleri çalışmayacaktır. OAuth tokenin nasıl alınacağına ilişkin YouTube videosunu izlemek için tıklayın.</value>
   </data>
   <data name="Offline" xml:space="preserve">
-    <value>Оффлайн </value>
+    <value>Çevrimdışı </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="OfflineTooltip" xml:space="preserve">
-    <value>Рендерить чать используя только ресурсы из json файла.</value>
+    <value>Sohbeti, yalnızca sohbet json dosyasına yerleştirilmiş kaynakları kullanarak işleyin.</value>
   </data>
   <data name="Outline" xml:space="preserve">
-    <value>Контур:</value>
+    <value>Kontur:</value>
   </data>
   <data name="ParallelTaskLimits" xml:space="preserve">
-    <value>Лимит задач</value>
+    <value>Paralel Görev Sınırları</value>
   </data>
   <data name="PartialRender" xml:space="preserve">
-    <value>Частичный рендер</value>
+    <value>Kısmi Oluşturma</value>
   </data>
   <data name="Quality" xml:space="preserve">
-    <value>Качество:</value>
+    <value>Kalite:</value>
   </data>
   <data name="Render" xml:space="preserve">
-    <value>Рендер</value>
+    <value>Oluştur</value>
   </data>
   <data name="RenderFfmpegWarning" xml:space="preserve">
-    <value>Опции только для продвинутых пользователй. Если вы получате сообщение об ошибке канала то опции ниже возможно являются причиной ошибки.</value>
+    <value>Bu yalnızca ileri düzey kullanıcılar içindir. Bir "pipe ended error" alırsanız muhtemelen nedeni budur.</value>
   </data>
   <data name="RenderFileFormat" xml:space="preserve">
-    <value>Формат файла:</value>
+    <value>Dosya formatı:</value>
   </data>
   <data name="RenderFramerate" xml:space="preserve">
-    <value>Частота кадров:</value>
+    <value>Kare hızı:</value>
   </data>
   <data name="RenderCodec" xml:space="preserve">
-    <value>Кодек:</value>
+    <value>Kodlayıcı:</value>
   </data>
   <data name="RenderTabEncoding" xml:space="preserve">
-    <value>Кодировка</value>
+    <value>Encoding</value>
   </data>
   <data name="RenderTabFfmpeg" xml:space="preserve">
     <value>Ffmpeg</value>
   </data>
   <data name="RenderTabGeneral" xml:space="preserve">
-    <value>Основные</value>
+    <value>Genel</value>
   </data>
   <data name="RenderTabPreview" xml:space="preserve">
-    <value>Предпросмотр</value>
+    <value>Önizleme</value>
   </data>
   <data name="RenderTabRendering" xml:space="preserve">
-    <value>Рендеринг</value>
+    <value>Oluşturma</value>
   </data>
   <data name="RenderTabScaling" xml:space="preserve">
-    <value>Масштабирование</value>
+    <value>Ölçekle</value>
   </data>
   <data name="RenderWidthHeightMustBeEven" xml:space="preserve">
-    <value>Ширина и высота должны быть четными</value>
+    <value>Genişlik ve Yükseklik eşit olmalıdır</value>
   </data>
   <data name="ReplaceEmbeds" xml:space="preserve">
-    <value>Заменять скачаные </value>
+    <value>Gömülü Verileri Değiştir </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="ReplaceEmbedsTooltip" xml:space="preserve">
-    <value>Заменять все скачанные эмодзи, значки и приведствия в файле. Все скачанные изображения будут замененны!</value>
+    <value>Dosyadaki tüm gömülü emojileri, rozetleri ve cheeremojileri(bitleri) değiştirin. Gömülü tüm görüntülerin üzerine yazılacak!</value>
   </data>
   <data name="SearchClips" xml:space="preserve">
-    <value>Поиск клипов</value>
+    <value>Klipleri ara</value>
   </data>
   <data name="SearchVods" xml:space="preserve">
-    <value>Поиск видео</value>
+    <value>VOD'ları ara</value>
   </data>
   <data name="SelectAll" xml:space="preserve">
-    <value>Выбрать всё</value>
+    <value>Hepsini Seç</value>
   </data>
   <data name="SelectedItems" xml:space="preserve">
-    <value>Выбрано:</value>
+    <value>Seçilen Öğeler:</value>
   </data>
   <data name="SetChannel" xml:space="preserve">
-    <value>Выбрать канал</value>
+    <value>Kanalı Ayarla</value>
   </data>
   <data name="Sort" xml:space="preserve">
-    <value>Сортировка:</value>
+    <value>Sırala:</value>
   </data>
   <data name="StatusDone" xml:space="preserve">
-    <value>Готово</value>
+    <value>Tamamlandı</value>
   </data>
   <data name="StatusDownloading" xml:space="preserve">
-    <value>Скачивается</value>
+    <value>İndiriliyor</value>
   </data>
   <data name="StatusError" xml:space="preserve">
-    <value>ОШИБКА</value>
+    <value>HATA</value>
   </data>
   <data name="StatusIdle" xml:space="preserve">
-    <value>Ожидание</value>
+    <value>Boşta</value>
   </data>
   <data name="StatusRendering" xml:space="preserve">
-    <value>Рендеринг</value>
+    <value>Oluşturuluyor</value>
   </data>
   <data name="StatusUpdating" xml:space="preserve">
-    <value>Обновление</value>
+    <value>Güncelleniyor</value>
   </data>
   <data name="Streamer" xml:space="preserve">
-    <value>Стиммер:</value>
+    <value>Yayıncı:</value>
   </data>
   <data name="StvEmotes" xml:space="preserve">
-    <value>7TV Эмодзи:</value>
+    <value>7TV Emojileri:</value>
   </data>
   <data name="SubMessages" xml:space="preserve">
-    <value>Сообщения подписчиков:</value>
+    <value>Abone Mesajları:</value>
   </data>
   <data name="TaskCancel" xml:space="preserve">
-    <value>Отмена</value>
+    <value>İptal</value>
   </data>
   <data name="TaskError" xml:space="preserve">
-    <value>Ошибка</value>
+    <value>Hata</value>
   </data>
   <data name="TaskQueue" xml:space="preserve">
-    <value>Очередь заданий</value>
+    <value>Görev Sırası</value>
   </data>
   <data name="ThirdPartyEmotes" xml:space="preserve">
-    <value>Сторонние эмодзи </value>
+    <value>3.Parti İfadeleri </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="ThirdPartyEmotesTooltip" xml:space="preserve">
-    <value>Также встраивать сторонние эмодзи в файл. Размер файла будет значительно больше.</value>
+    <value>Ayrıca dosyaya üçüncü parti emojileri ekleyin. Dosya boyutu çok daha büyük olacaktır.</value>
   </data>
   <data name="TimestampFormat" xml:space="preserve">
-    <value>Формат времени:</value>
+    <value>Zaman Damgası Biçimi:</value>
   </data>
   <data name="TimestampNone" xml:space="preserve">
-    <value>Нет</value>
+    <value>Hiçbiri</value>
   </data>
   <data name="TimestampRelative" xml:space="preserve">
-    <value>Relative</value>
+    <value>Bağlantılı</value>
   </data>
   <data name="Timestamps" xml:space="preserve">
-    <value>Временные метки:</value>
+    <value>Zaman damgaları:</value>
   </data>
   <data name="TimestampUtc" xml:space="preserve">
     <value>UTC</value>
   </data>
   <data name="TopAllTime" xml:space="preserve">
-    <value>Топ за всё время</value>
+    <value>Tüm Zamanların En İyisi</value>
   </data>
   <data name="TopSevenDays" xml:space="preserve">
-    <value>Топ 7 дней</value>
+    <value>Top 7 Gün</value>
   </data>
   <data name="TopThirtyDays" xml:space="preserve">
-    <value>Топ 30 дней</value>
+    <value>Top 30 Gün</value>
   </data>
   <data name="TopTwentyFourHours" xml:space="preserve">
-    <value>Топ 24 часа</value>
+    <value>Top 24 Zaman</value>
   </data>
   <data name="UnableToFindThumbnail" xml:space="preserve">
-    <value>Не удалось найти превью</value>
+    <value>Küçük Resim Bulunamıyor</value>
   </data>
   <data name="UnableToGetClipInfo" xml:space="preserve">
-    <value>Не удалось найти информацию о клипе. Пожалуйста перепроверьте ID клипа и попробуйте заново.</value>
+    <value>Klip bilgisi alınamıyor. Lütfen Clip Slug'u tekrar kontrol edin ve tekrar deneyin.</value>
   </data>
   <data name="UnableToGetInfo" xml:space="preserve">
-    <value>Не удалось получить информацию</value>
+    <value>Bilgi alınamıyor</value>
   </data>
   <data name="UnableToGetInfoMessage" xml:space="preserve">
-    <value>Ну удалось найти информацию о видео/клипе. Пожалуйста проверьте вашу ссылку и попробуйте заново.</value>
+    <value>Video/Klip bilgileri alınamıyor. Lütfen bağlantınızı iki kez kontrol edin ve tekrar deneyin</value>
   </data>
   <data name="UnableToGetVideoInfo" xml:space="preserve">
-    <value>Не удалось получить информацию о видео. Пожалуйта убедитесь, что ссылка/ID видео правильные и попробуйте заново.</value>
+    <value>Video bilgileri alınamıyor. Lütfen Bağlantının/Kimliğin doğru olduğundan emin olun ve tekrar deneyin.</value>
   </data>
   <data name="UnableToParseInputs" xml:space="preserve">
-    <value>Не удалось распознать ввод</value>
+    <value>Girişler ayrıştırılamıyor</value>
   </data>
   <data name="UnableToParseInputsMessage" xml:space="preserve">
-    <value>Пожалуйста перепроверьте введенные значения</value>
+    <value>Lütfen girdilerinizin geçerli olup olmadığını bir kez daha kontrol edin</value>
   </data>
   <data name="UnableToParseLink" xml:space="preserve">
-    <value>Не удалось распознать ссылку</value>
+    <value>Bağlantı ayrıştırılamıyor</value>
   </data>
   <data name="UnableToParseLinkMessage" xml:space="preserve">
-    <value>Пожалуйта перепроверьте ссылку на видео/клип.</value>
+    <value>Lütfen VOD/Klip bağlantısını iki kez kontrol edin</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Неизвестно</value>
+    <value>Bilinmeyen</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Обновить</value>
+    <value>Güncelleme</value>
   </data>
   <data name="UpdateRate" xml:space="preserve">
-    <value>Частота обновления:</value>
+    <value>Güncelleme Sıklığı:</value>
   </data>
   <data name="UrlList" xml:space="preserve">
-    <value>Список URL</value>
+    <value>Bağlantı Listesi</value>
   </data>
   <data name="VerboseErrorOutput" xml:space="preserve">
-    <value>Подробный вывод ошибок</value>
+    <value>Ayrıntılı Hata Çıktısı</value>
   </data>
   <data name="VerboseErrors" xml:space="preserve">
-    <value>Подробные ошибки:</value>
+    <value>Ayrıntılı Hatalar:</value>
   </data>
   <data name="VideoCreatedAt" xml:space="preserve">
-    <value>Создан:</value>
+    <value>Tarih:</value>
   </data>
   <data name="VideoTitle" xml:space="preserve">
-    <value>Название:</value>
+    <value>Başlık:</value>
   </data>
   <data name="VodClipLink" xml:space="preserve">
-    <value>Ссылка на видео/клип:</value>
+    <value>VOD/Klip Bağlantısı:</value>
   </data>
   <data name="VodDownload" xml:space="preserve">
-    <value>Скачать видео</value>
+    <value>VOD İndir</value>
   </data>
   <data name="VodDownloads" xml:space="preserve">
-    <value>Загрузки видео</value>
+    <value>VOD İndirmeleri</value>
   </data>
   <data name="VodExpiredOrIdCorrupt" xml:space="preserve">
-    <value>Видео больше не доступно или сохраненный ID поврежден</value>
+    <value>Videonun süresi dolmuş veya yerleştirlmiş kimlik bozuk</value>
   </data>
   <data name="VodLinkId" xml:space="preserve">
-    <value>Ссылка/ID видео:</value>
+    <value>VOD Bağlantısı/ID:</value>
   </data>
   <data name="TemplateVods" xml:space="preserve">
-    <value>Видео:</value>
+    <value>VOD'lar:</value>
   </data>
   <data name="DownloadChat" xml:space="preserve">
-    <value>Скачать чат</value>
+    <value>Sohbeti İndir</value>
   </data>
   <data name="DownloadFolder" xml:space="preserve">
-    <value>Папка загрузок:</value>
+    <value>İndirme Klasörü:</value>
   </data>
   <data name="DownloadVideo" xml:space="preserve">
-    <value>Скачать видео</value>
+    <value>Videoyu indir</value>
   </data>
   <data name="ApplicationLanguage" xml:space="preserve">
-    <value>Язык </value>
+    <value>Dil </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="RenderChat" xml:space="preserve">
-    <value>Рендер чата</value>
+    <value>Sohbeti Oluştur</value>
   </data>
   <data name="HighlightIndentScale" xml:space="preserve">
-    <value>Размер отступа выделения:</value>
+    <value>Girinti Ölçeğini Vurgula:</value>
   </data>
   <data name="HighlightStrokeScale" xml:space="preserve">
-    <value>Highlight Stroke Scale:</value>
+    <value>Stoke Skalasını Vurgulayın:</value>
   </data>
   <data name="BadgeScale" xml:space="preserve">
-    <value>Масштаб значков:</value>
+    <value>Rozet Ölçeği:</value>
   </data>
   <data name="EmojiScale" xml:space="preserve">
-    <value>Размер смайлов:</value>
+    <value>Emoji Ölçeği:</value>
   </data>
   <data name="EmoteScale" xml:space="preserve">
-    <value>Размер эмодзи:</value>
+    <value>Emoji Ölçeği:</value>
   </data>
   <data name="EmoteSpacingScale" xml:space="preserve">
-    <value>Расстояние между эмодзи:</value>
+    <value>Emoji Aralığı Ölçeği:</value>
   </data>
   <data name="SidePaddingScale" xml:space="preserve">
-    <value>Размер бокового отступа:</value>
+    <value>Yan Dolgu Ölçeği:</value>
   </data>
   <data name="SectionHeightScale" xml:space="preserve">
-    <value>Масштаб высоты секции:</value>
+    <value>Bölüm Yüksekliği Ölçeği:</value>
   </data>
   <data name="VerticalSpacingScale" xml:space="preserve">
-    <value>Размер вертикального отступа:</value>
+    <value>Dikey Aralık Ölçeği:</value>
   </data>
   <data name="WordSpacingScale" xml:space="preserve">
-    <value>Межбуквенное расстояние:</value>
+    <value>Kelime Boşluğu Ölçeği:</value>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Файл не найден: </value>
+    <value>Dosya bulunamadı: </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="FatalError" xml:space="preserve">
-    <value>Критическая ошибка</value>
+    <value>Önemli hata</value>
   </data>
   <data name="ThemeNotFound" xml:space="preserve">
-    <value>Тема не найденна</value>
+    <value>Tema bulunamadı</value>
   </data>
   <data name="ThemeNotFoundMessage" xml:space="preserve">
-    <value>{theme} не найденна. Откат на системную</value>
+    <value>{theme} bulunamadı. Sistem temasına geri döndürülüyor</value>
     <comment>Do not translate {theme}</comment>
   </data>
   <data name="MessageDispersion" xml:space="preserve">
-    <value>Разбиение </value>
+    <value>Dağıtma </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="MessageDispersionTooltip" xml:space="preserve">
-    <value>С ноября 2022 года в результате изменения API Twitch сообщения чата загружаются не более одного за одну секунду. Если в секунду отправленно несколько сообщений, они будут распределены по нескольким секундам, для улучшения потока чата.</value>
+    <value>Kasım 2022'de bir Twitch API değişikliği ile, sohbet mesajlarının yalnızca tam saniyeler içinde indirilmesini sağladı. Saniyede birden fazla mesaj varsa, sohbet akışını iyileştirmek için akıllı bir şekilde mesajlar saniyeye dağıtılacaktır.</value>
   </data>
   <data name="ChatCompression" xml:space="preserve">
-    <value>Сжатие:</value>
+    <value>Sıkıştırma:</value>
   </data>
   <data name="ChatCompressionNone" xml:space="preserve">
-    <value>Нет</value>
+    <value>Hiçbiri</value>
   </data>
   <data name="ChatCompressionGzip" xml:space="preserve">
     <value>Gzip</value>
     <comment>Do not translate</comment>
   </data>
   <data name="ThemesFailedToWrite" xml:space="preserve">
-    <value>Не удалось записать некоторые добавленные темы.</value>
+    <value>Dahil edilen bazı temalar yazılamadı.</value>
   </data>
   <data name="TitleGlobalSettings" xml:space="preserve">
-    <value>Общие настройки</value>
+    <value>Genel Ayarlar</value>
   </data>
   <data name="TitleEnqueueOptions" xml:space="preserve">
-    <value>Опции очереди</value>
+    <value>Sıraya Alma Seçenekleri</value>
   </data>
   <data name="TitleRenderRange" xml:space="preserve">
-    <value>Выберите диапазон рендера (Секунды)</value>
+    <value>Oluşturma Süresini seçin (Saniye)</value>
   </data>
   <data name="TitleUrlList" xml:space="preserve">
-    <value>Список URL для массовой загузки</value>
+    <value>Toplu İndirme URL Listesi</value>
   </data>
   <data name="TitleVideoMassDownloader" xml:space="preserve">
-    <value>Массовая загрузка видео</value>
+    <value>Toplu Video İndirici</value>
   </data>
   <data name="TitleClipMassDownloader" xml:space="preserve">
-    <value>Массовая загрузка клипов</value>
+    <value>Toplu Klip İndirici</value>
   </data>
   <data name="ApplicationLanguageTooltip" xml:space="preserve">
-    <value>TwitchDownloaderWPF не доступен на твоем языке? Нажми здесь чтобы узнать как помочь с переводом!</value>
+    <value>KickDownloaderWPF ana dilinizde mevcut değil mi?  Çeviriye nasıl yardım edeceğinizi öğrenmek için tıklayın!</value>
   </data>
   <data name="InvalidFolderPath" xml:space="preserve">
-    <value>Неправильный путь к папке</value>
+    <value>Geçersiz Klasör Yolu</value>
   </data>
   <data name="InvaliFolderPathMessage" xml:space="preserve">
-    <value>Папка не существует</value>
+    <value>Klasör mevcut değil</value>
   </data>
   <data name="StatusCanceled" xml:space="preserve">
-    <value>Отменено</value>
+    <value>İptal edildi</value>
   </data>
   <data name="StatusCanceling" xml:space="preserve">
-    <value>Отменяем</value>
+    <value>İptal Ediliyor</value>
   </data>
   <data name="MaximumThreadBandwidth" xml:space="preserve">
-    <value>Максимальная пропускная способность </value>
+    <value>Maksimum İşlem Bant Genişliği </value>
     <comment>Leave a trailing space</comment>
   </data>
   <data name="MaximumThreadBandwidthTooltip" xml:space="preserve">
-    <value>Максимальная пропускная способность, доступная новым потокам загрузки, в килобайтах в секунду.</value>
+    <value>Yeni indirme iş parçacıklarına izin verilecek maksimum bant genişliği, saniye/kilobayt cinsinden ifade edilir.</value>
   </data>
   <data name="RenderImageSharpening" xml:space="preserve">
-    <value>Резкость:</value>
+    <value>Keskinlik:</value>
   </data>
   <data name="TimestampLocal" xml:space="preserve">
-    <value>Локальный</value>
+    <value>Lokal</value>
   </data>
   <data name="SettingsTimeFormat" xml:space="preserve">
-    <value>Формат времени:</value>
+    <value>Zaman Formatı:</value>
   </data>
   <data name="NoJsonFilesSelected" xml:space="preserve">
-    <value>Не выбран JSON файл</value>
+    <value>No JSON files selected</value>
   </data>
   <data name="InsufficientAccessMayNeedOauth" xml:space="preserve">
-    <value>Не удалось получить доступ. Возможно нужна OAuth авторизация.</value>
+    <value>Insufficient access. OAuth may be required.</value>
   </data>
   <data name="EmojiVendor" xml:space="preserve">
-    <value>Поставщик смайлов:</value>
+    <value>Emoji Vendor:</value>
   </data>
   <data name="EmojiVendorNotoColor" xml:space="preserve">
     <value>Google</value>
@@ -724,18 +725,15 @@
     <value>Twitter</value>
   </data>
   <data name="EmojiVendorNone" xml:space="preserve">
-    <value>Нет</value>
+    <value>None</value>
   </data>
   <data name="MaskWithNoAlpha" xml:space="preserve">
-    <value>Вы включили опции генерации маски вместе с непрозрачным фоном. Уменшите прозрачность фона или выключите генерацию маски.</value>
+    <value>You've selected generate mask with an opaque background. Reduce the background color alpha or disable generate mask.</value>
   </data>
   <data name="OutlineScale" xml:space="preserve">
     <value>Outline Scale:</value>
   </data>
   <data name="TimeSpanCustomFormattingHyperlink" xml:space="preserve">
-    <value>C# строки стандартного формата TimeSpan</value>
-  </data>
-  <data name="TimeSpanCustomFormatting" xml:space="preserve">
-    <value>crop_start_custom and crop_end_custom форматирование основанно на</value>
+    <value>C# standard TimeSpan format strings</value>
   </data>
 </root>

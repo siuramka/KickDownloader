@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TwitchDownloaderWPF"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         lex:LocalizeDictionary.DesignCulture=""
-        lex:ResxLocalizationProvider.DefaultAssembly="TwitchDownloaderWPF"
+        lex:ResxLocalizationProvider.DefaultAssembly="KickDownloaderWPF"
         lex:ResxLocalizationProvider.DefaultDictionary="Strings"
         mc:Ignorable="d"
         Title="Select Render Range (Seconds)" Height="150" Width="400" Background="#FFEFEFEF" Initialized="Window_Initialized" Loaded="Window_Loaded">

@@ -23,6 +23,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 	<EnableNETAnalyzers>false</EnableNETAnalyzers>
 	<Platforms>AnyCPU;x64</Platforms>
+	<RootNamespace>TwitchDownloaderWPF</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>

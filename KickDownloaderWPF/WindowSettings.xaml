@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TwitchDownloaderWPF"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         lex:LocalizeDictionary.DesignCulture=""
-        lex:ResxLocalizationProvider.DefaultAssembly="TwitchDownloaderWPF"
+        lex:ResxLocalizationProvider.DefaultAssembly="KickDownloaderWPF"
         lex:ResxLocalizationProvider.DefaultDictionary="Strings"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
@@ -52,7 +52,7 @@
             </StackPanel>
             <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                 <fa:SvgAwesome Margin="3,2,1,-2" Icon="Solid_Language" Width="32" Height="26" Foreground="{DynamicResource AppText}" />
-                <TextBlock Margin="3,8,3,3" Foreground="{DynamicResource AppText}"><Run Text="{lex:Loc ApplicationLanguage}"/><Hyperlink ToolTipService.ShowDuration="30000" NavigateUri="https://github.com/lay295/TwitchDownloader/blob/master/TwitchDownloaderWPF/README.md#localization" RequestNavigate="Hyperlink_RequestNavigate" Foreground="{DynamicResource AppHyperlink}"><Hyperlink.ToolTip><Run Text="{lex:Loc ApplicationLanguageTooltip}"/></Hyperlink.ToolTip>(?)</Hyperlink>:</TextBlock>
+                <TextBlock Margin="3,8,3,3" Foreground="{DynamicResource AppText}"><Run Text="{lex:Loc ApplicationLanguage}"/><Hyperlink ToolTipService.ShowDuration="30000" NavigateUri="https://github.com/lay295/TwitchDownloader/blob/master/KickDownloaderWPF/README.md#localization" RequestNavigate="Hyperlink_RequestNavigate" Foreground="{DynamicResource AppHyperlink}"><Hyperlink.ToolTip><Run Text="{lex:Loc ApplicationLanguageTooltip}"/></Hyperlink.ToolTip>(?)</Hyperlink>:</TextBlock>
                 <ComboBox x:Name="comboLocale" MinWidth="100" MaxWidth="330" HorizontalAlignment="Left" SelectionChanged="comboLocale_SelectionChanged" Margin="3,0,3,0" Background="{DynamicResource AppElementBackground}" BorderBrush="{DynamicResource AppElementBorder}" Foreground="{DynamicResource AppText}" />
             </StackPanel>
             <StackPanel Margin="0,0,0,10" Orientation="Horizontal">

@@ -7,7 +7,7 @@
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:lex="http://wpflocalizeextension.codeplex.com"
       lex:LocalizeDictionary.DesignCulture=""
-      lex:ResxLocalizationProvider.DefaultAssembly="TwitchDownloaderWPF"
+      lex:ResxLocalizationProvider.DefaultAssembly="KickDownloaderWPF"
       lex:ResxLocalizationProvider.DefaultDictionary="Strings"
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:fa="http://schemas.fontawesome.com/icons/"

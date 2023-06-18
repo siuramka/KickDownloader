@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:TwitchDownloaderWPF"
       xmlns:lex="http://wpflocalizeextension.codeplex.com"
       lex:LocalizeDictionary.DesignCulture=""
-      lex:ResxLocalizationProvider.DefaultAssembly="TwitchDownloaderWPF"
+      lex:ResxLocalizationProvider.DefaultAssembly="KickDownloaderWPF"
       lex:ResxLocalizationProvider.DefaultDictionary="Strings"
       xmlns:fa="http://schemas.fontawesome.com/icons/"
       xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
