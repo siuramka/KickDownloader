@@ -23,7 +23,7 @@ namespace TwitchDownloaderCore.TwitchObjects.Api;
         public List<Category> categories { get; set; }
     }
 
-    public class Channel
+    public partial class Channel
     {
         public int id { get; set; }
         public int user_id { get; set; }
@@ -52,7 +52,7 @@ namespace TwitchDownloaderCore.TwitchObjects.Api;
         public string username { get; set; }
     }
 
-    public class Category
+    public partial class Category
     {
         public int id { get; set; }
         public int category_id { get; set; }

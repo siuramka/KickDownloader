@@ -51,18 +51,12 @@ namespace TwitchDownloaderCore
             return playlist.Split('\n', StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public static async Task<GqlClipResponse> GetClipInfo(object clipId)
+        public static async Task<ClipsResponse> GetClipInfo(string clipId)
         {
-            var request = new HttpRequestMessage()
-            {
-                RequestUri = new Uri("https://gql.twitch.tv/gql"),
-                Method = HttpMethod.Post,
-                Content = new StringContent("{\"query\":\"query{clip(slug:\\\"" + clipId + "\\\"){title,thumbnailURL,createdAt,durationSeconds,broadcaster{id,displayName},videoOffsetSeconds,video{id}}}\",\"variables\":{}}", Encoding.UTF8, "application/json")
-            };
-            request.Headers.Add("Client-ID", "kimne78kx3ncx6brgo4mv6wki5h1ko");
-            using var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<GqlClipResponse>();
+            var service = await PuppeteerHttpService.CreateAsync(_baseUrl);
+            ClipsResponse clipInfo = await service.GetJsonAsync<ClipsResponse>($"/api/v2/clips/{clipId}");
+
+            return clipInfo;
         }
 
         public static async Task<List<GqlClipTokenResponse>> GetClipLinks(string clipId)

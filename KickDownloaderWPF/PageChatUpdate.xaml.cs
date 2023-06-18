@@ -132,7 +132,7 @@ namespace KickDownloaderWPF
                     numStartHour.Maximum = 0;
                     numEndHour.Maximum = 0;
                 }
-                GqlClipResponse videoInfo = await KickHelper.GetClipInfo(VideoId);
+                GqlClipResponse videoInfo = await TwitchHelper.GetClipInfo(VideoId);
                 if (videoInfo.data.clip.video == null)
                 {
                     AppendLog(Translations.Strings.ErrorLog + Translations.Strings.UnableToFindThumbnail + ": " + Translations.Strings.VodExpiredOrIdCorrupt);

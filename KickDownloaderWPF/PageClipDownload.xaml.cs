@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace KickDownloaderWPF
             {
                 btnGetInfo.IsEnabled = false;
                 comboQuality.Items.Clear();
-                Task<GqlClipResponse> taskClipInfo = KickHelper.GetClipInfo(clipId);
+                Task<GqlClipResponse> taskClipInfo = TwitchHelper.GetClipInfo(clipId);
                 Task<List<GqlClipTokenResponse>> taskLinks = KickHelper.GetClipLinks(clipId);
                 await Task.WhenAll(taskClipInfo, taskLinks);
 
@@ -110,11 +111,14 @@ namespace KickDownloaderWPF
 
         private static string ValidateUrl(string text)
         {
-            var clipIdRegex = new Regex(@"(?<=^|(?:clips\.)?twitch\.tv\/(?:\S+\/clip)?\/?)[\w-]+?(?=$|\?)");
-            var clipIdMatch = clipIdRegex.Match(text);
-            return clipIdMatch.Success
-                ? clipIdMatch.Value
-                : null;
+            var vodIdMatch = Regex.Match(text, @"https:\/\/kick\.com\/([a-zA-Z0-9_]+)\?clip=[0-9]+");
+            string vodGuid = text.Split('/').Last();
+            if (vodIdMatch.Success)
+            {
+                return vodGuid;
+            }
+
+            return null;
         }
 
         private void AppendLog(string message)

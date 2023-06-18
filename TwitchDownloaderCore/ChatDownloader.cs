@@ -247,7 +247,7 @@ namespace TwitchDownloaderCore
             }
             else
             {
-                GqlClipResponse clipInfoResponse = await KickHelper.GetClipInfo(videoId);
+                GqlClipResponse clipInfoResponse = await TwitchHelper.GetClipInfo(videoId);
                 if (clipInfoResponse.data.clip.video == null || clipInfoResponse.data.clip.videoOffsetSeconds == null)
                 {
                     throw new NullReferenceException("Invalid VOD for clip, deleted/expired VOD possibly?");
