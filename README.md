@@ -1,6 +1,6 @@
 # Kick Vod Downloader
 
-# This is a fork of the lay295/KickDownloader
+# This is a fork of the lay295/TwitchDownloader
 
 I have noticed that there is currently no reliable method to download VODs from Kick.com. As a result, I have created a solution to address this issue.
 
@@ -13,18 +13,13 @@ Due to these limitations, the current implementation uses the **non-headless mod
 
 If Kick introduces proper API support in the future, this repository will be updated accordingly.
 
-Credits go to lay295 and collaborators for the KickDownloader code.
-
-## Currently only VOD downloading works wia KickDownloaderWPF.
-## In Progress
+## Release V1.0.0
+# Currently only VOD downloading works wia KickDownloaderWPF.
+# In Progress
 - CLI
 - Clip download
 
 Since kick doesnt save chats, no chat feature will be available.
 
-#
-#
-#
-#
-#
-#
+
+Credits go to lay295 and collaborators for the TwitchDownloader code.
