@@ -54,7 +54,7 @@ namespace TwitchDownloaderCore
         public static async Task<ClipsResponse> GetClipInfo(string clipId)
         {
             var service = await PuppeteerHttpService.CreateAsync(_baseUrl);
-            ClipsResponse clipInfo = await service.GetJsonAsync<ClipsResponse>($"/api/v2/clips/{clipId}");
+            ClipsResponse clipInfo = await service.GetJsonAsync<ClipsResponse>($"api/v2/clips/{clipId}");
 
             return clipInfo;
         }
