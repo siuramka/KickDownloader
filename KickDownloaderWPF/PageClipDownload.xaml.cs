@@ -15,6 +15,7 @@ using TwitchDownloaderCore.Options;
 using TwitchDownloaderCore.TwitchObjects.Gql;
 using KickDownloaderWPF.Properties;
 using KickDownloaderWPF.Services;
+using TwitchDownloaderCore.TwitchObjects.Api;
 using WpfAnimatedGif;
 
 namespace KickDownloaderWPF
@@ -47,15 +48,13 @@ namespace KickDownloaderWPF
             {
                 btnGetInfo.IsEnabled = false;
                 comboQuality.Items.Clear();
-                Task<GqlClipResponse> taskClipInfo = TwitchHelper.GetClipInfo(clipId);
-                Task<List<GqlClipTokenResponse>> taskLinks = KickHelper.GetClipLinks(clipId);
-                await Task.WhenAll(taskClipInfo, taskLinks);
+                Task<ClipsResponse> taskClipInfo = KickHelper.GetClipInfo(clipId);
+                await Task.WhenAll(taskClipInfo);
 
-                GqlClipResponse clipData = taskClipInfo.Result;
-
+                ClipsResponse clipData = taskClipInfo.Result;
                 try
                 {
-                    string thumbUrl = clipData.data.clip.thumbnailURL;
+                    string thumbUrl = clipData.clip.thumbnail_url;
                     imgThumbnail.Source = await ThumbnailService.GetThumb(thumbUrl);
                 }
                 catch
@@ -67,18 +66,13 @@ namespace KickDownloaderWPF
                         imgThumbnail.Source = image;
                     }
                 }
-                clipLength = TimeSpan.FromSeconds(taskClipInfo.Result.data.clip.durationSeconds);
-                textStreamer.Text = clipData.data.clip.broadcaster.displayName;
-                var clipCreatedAt = clipData.data.clip.createdAt;
+                clipLength = TimeSpan.FromSeconds(clipData.clip.duration);
+                textStreamer.Text = clipData.clip.channel.username;
+                var clipCreatedAt =  clipData.clip.created_at;
                 textCreatedAt.Text = Settings.Default.UTCVideoTime ? clipCreatedAt.ToString(CultureInfo.CurrentCulture) : clipCreatedAt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
                 currentVideoTime = Settings.Default.UTCVideoTime ? clipCreatedAt : clipCreatedAt.ToLocalTime();
-                textTitle.Text = clipData.data.clip.title;
+                textTitle.Text = clipData.clip.title;
                 labelLength.Text = clipLength.ToString("c");
-
-                foreach (var quality in taskLinks.Result[0].data.clip.videoQualities)
-                {
-                    comboQuality.Items.Add(new TwitchClip(quality.quality, quality.frameRate.ToString(), quality.sourceURL));
-                }
 
                 comboQuality.SelectedIndex = 0;
                 comboQuality.IsEnabled = true;
@@ -112,7 +106,8 @@ namespace KickDownloaderWPF
         private static string ValidateUrl(string text)
         {
             var vodIdMatch = Regex.Match(text, @"https:\/\/kick\.com\/([a-zA-Z0-9_]+)\?clip=[0-9]+");
-            string vodGuid = text.Split('/').Last();
+            https://kick.com/api/v2/clips/137235
+            string vodGuid = text.Split('=').Last();
             if (vodIdMatch.Success)
             {
                 return vodGuid;
