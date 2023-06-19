@@ -202,7 +202,6 @@ namespace KickDownloaderWPF
                     ClipDownloadOptions downloadOptions = new ClipDownloadOptions();
                     downloadOptions.Filename = Path.Combine(folderPath, FilenameService.GetFilename(Settings.Default.TemplateClip, clipPage.textTitle.Text, clipPage.clipId, clipPage.currentVideoTime, clipPage.textStreamer.Text, TimeSpan.Zero, clipPage.clipLength) + ".mp4");
                     downloadOptions.Id = clipPage.clipId;
-                    downloadOptions.Quality = clipPage.comboQuality.Text;
                     downloadOptions.ThrottleKib = Settings.Default.DownloadThrottleEnabled
                         ? Settings.Default.MaximumBandwidthKib
                         : -1;

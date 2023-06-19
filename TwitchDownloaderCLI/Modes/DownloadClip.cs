@@ -36,7 +36,6 @@ namespace TwitchDownloaderCLI.Modes
             {
                 Id = clipIdMatch.Value,
                 Filename = inputOptions.OutputFile,
-                Quality = inputOptions.Quality,
                 ThrottleKib = inputOptions.ThrottleKib
             };
 

@@ -47,11 +47,12 @@ namespace KickDownloaderWPF
             try
             {
                 btnGetInfo.IsEnabled = false;
+                comboQuality.IsEnabled = false;
                 comboQuality.Items.Clear();
-                Task<ClipsResponse> taskClipInfo = KickHelper.GetClipInfo(clipId);
-                await Task.WhenAll(taskClipInfo);
-
-                ClipsResponse clipData = taskClipInfo.Result;
+                comboQuality.Items.Add("Original"); // Since kick only offers single quality; 
+                
+                ClipsResponse taskClipInfo = await KickHelper.GetClipInfo(clipId);
+                ClipsResponse clipData = taskClipInfo;
                 try
                 {
                     string thumbUrl = clipData.clip.thumbnail_url;
@@ -106,7 +107,6 @@ namespace KickDownloaderWPF
         private static string ValidateUrl(string text)
         {
             var vodIdMatch = Regex.Match(text, @"https:\/\/kick\.com\/([a-zA-Z0-9_]+)\?clip=[0-9]+");
-            https://kick.com/api/v2/clips/137235
             string vodGuid = text.Split('=').Last();
             if (vodIdMatch.Success)
             {
@@ -165,11 +165,6 @@ namespace KickDownloaderWPF
 
         private async void SplitBtnDownload_Click(object sender, RoutedEventArgs e)
         {
-            if (((HandyControl.Controls.SplitButton)sender).IsDropDownOpen)
-            {
-                return;
-            }
-
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "MP4 Files | *.mp4",
@@ -223,7 +218,6 @@ namespace KickDownloaderWPF
             {
                 Filename = fileName,
                 Id = clipId,
-                Quality = comboQuality.Text,
                 ThrottleKib = Settings.Default.DownloadThrottleEnabled
                     ? Settings.Default.MaximumBandwidthKib
                     : -1,
