@@ -92,6 +92,14 @@ public class PuppeteerHttpService
             {
                 var page = await browser.NewPageAsync();
                 await page.GoToAsync(_baseUrl + url);
+                
+                var ua = await page.Browser.GetUserAgentAsync();
+                ua = ua.Replace("HeadlessChrome", "Chrome");
+
+                var regex = new Regex(@"/\(([^)]+)\)/");
+                ua = regex.Replace(ua, "(Windows NT 10.0; Win64; x64)");
+
+                await page.SetUserAgentAsync(ua);
 
                 string content = await page.EvaluateFunctionAsync<string>("() => document.documentElement.textContent");
 
