@@ -13,11 +13,40 @@ If Kick introduces proper API support in the future, this repository will be upd
 ## Latest Alpha
 - Download VODs
 - Download Clips
-- 
-![Figure 1.1](KickDownloaderWPF/Images/vodExample.png)
+
+
+Preview:
+- ![Figure 1.1](KickDownloaderWPF/Images/vodExample.png)
 
 
 Since kick doesnt save chats, no chat feature will be available.
+
+## Build Instructions
+Windows only for now...
+GUI
+
+1. Clone the repository:
+```
+git clone https://github.com/siuramka/KickDownloader.git
+```
+2. Navigate to the solution folder:
+```
+cd sKickDownloader
+```
+3. Restore the solution:
+```
+dotnet restore
+```
+4. Build the GUI:
+```
+dotnet publish KickDownloaderWPF -p:PublishProfile=Windows -p:DebugType=None -p:DebugSymbols=false
+```
+5. a) Navigate to the GUI build folder:
+```
+cd KickDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64
+```
+
+
 
 
 Credits go to lay295 and collaborators for the TwitchDownloader code.
