@@ -10,11 +10,9 @@ To tackle this problem, I utilized Puppeteer chromium headless mode, meaning the
 
 If Kick introduces proper API support in the future, this repository will be updated accordingly.
 
-## Release Alpha
-# Currently only VOD downloading works wia KickDownloaderWPF.
-# In Progress
-- CLI
-- Clip download
+## Latest Alpha
+- Download VODs
+- Download Clips
 
 Since kick doesnt save chats, no chat feature will be available.
 
