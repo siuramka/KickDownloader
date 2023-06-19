@@ -45,9 +45,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore Dependencies
-      run: dotnet restore TwitchDownloaderWPF
+      run: dotnet restore KickDownloaderWPF
     - name: Build Windows GUI
-      run: dotnet publish TwitchDownloaderWPF -p:PublishProfile=Windows -p:DebugType=None -p:DebugSymbols=false
+      run: dotnet publish KickDownloaderWPF -p:PublishProfile=Windows -p:DebugType=None -p:DebugSymbols=false
     
     - name: Download Ffmpeg To Workspace
       # You may pin to the exact commit or the version.
@@ -60,12 +60,12 @@ jobs:
         file-name: ffmpeg.zip
         
     - name: Bundle Ffmpeg
-      run: tar xfz ffmpeg.zip --strip-components=1; copy bin/ffmpeg.exe TwitchDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64/ffmpeg.exe
+      run: tar xfz ffmpeg.zip --strip-components=1; copy bin/ffmpeg.exe KickDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64/ffmpeg.exe
       
     - name: Zip Windows GUI Release Asset
       uses: vimtor/action-zip@v1
       with:
-        files: "TwitchDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64"
+        files: "KickDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64"
         dest: TwitchDownloaderGUI-${{ github.event.inputs.release_tag }}-Windows-x64.zip
     
     - name: Download URL
