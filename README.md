@@ -13,6 +13,9 @@ If Kick introduces proper API support in the future, this repository will be upd
 ## Latest Alpha
 - Download VODs
 - Download Clips
+- 
+![Figure 1.1](KickDownloaderWPF/Images/vodExample.png)
+
 
 Since kick doesnt save chats, no chat feature will be available.
 
