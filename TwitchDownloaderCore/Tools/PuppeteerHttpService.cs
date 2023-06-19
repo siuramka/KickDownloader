@@ -77,8 +77,6 @@ public class PuppeteerHttpService
                 
                 string content = await page.EvaluateExpressionAsync<string>("document.body.innerText"); //get inner text/text as puppeteer serializes html content
 
-                // await browser.CloseAsync();
-                // await page.DisposeAsync();
                 await browser.DisposeAsync();
                 var jsonObject = JsonConvert.DeserializeObject<T>(content);
 
@@ -103,7 +101,6 @@ public class PuppeteerHttpService
 
                 string content = await page.EvaluateFunctionAsync<string>("() => document.documentElement.textContent");
 
-                await page.DisposeAsync();
                 await browser.DisposeAsync();
 
                 return content;
