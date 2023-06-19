@@ -89,7 +89,6 @@ public class PuppeteerHttpService
             using (IBrowser browser = await _puppeteerExtra.LaunchAsync(_launchOptions))
             {
                 var page = await browser.NewPageAsync();
-                await page.GoToAsync(_baseUrl + url);
                 
                 var ua = await page.Browser.GetUserAgentAsync();
                 ua = ua.Replace("HeadlessChrome", "Chrome");
@@ -99,6 +98,7 @@ public class PuppeteerHttpService
 
                 await page.SetUserAgentAsync(ua);
 
+                await page.GoToAsync(_baseUrl + url);
                 string content = await page.EvaluateFunctionAsync<string>("() => document.documentElement.textContent");
 
                 await browser.DisposeAsync();
