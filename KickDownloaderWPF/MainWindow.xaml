@@ -32,6 +32,11 @@
         <Button x:Name="btnClipDownload" Margin="4" Grid.Row="1" Grid.Column="2" MinWidth="122" Height="52" Click="btnClipDownload_Click" FontWeight="Bold" Padding="3,0,3,0" Background="{DynamicResource BigButtonBackground}" Foreground="{DynamicResource BigButtonText}" BorderBrush="{DynamicResource BigButtonBorder}" >
             <TextBlock Text="{lex:Loc ClipDownload}" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=btnClipDownload, Mode=OneWay}" Padding="3,0,3,0" />
         </Button>
+        <StatusBar Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Background="{DynamicResource StatusBarBackground}" BorderBrush="{DynamicResource StatusBarBorder}">
+            <StatusBarItem Padding="10,1,0,1">
+                <TextBlock Text="{lex:Loc StatusIdle}" x:Name="statusMessage" FontWeight="Bold" Foreground="{DynamicResource StatusBarText}"/>
+            </StatusBarItem>
+        </StatusBar>
         <!-- <Button x:Name="btnChatDownload" Margin="4" Grid.Row="1" Grid.Column="3" MinWidth="122" Height="52" Click="btnChatDownload_Click" FontWeight="Bold" Padding="3,0,3,0" Background="{DynamicResource BigButtonBackground}" Foreground="{DynamicResource BigButtonText}" BorderBrush="{DynamicResource BigButtonBorder}" > -->
         <!--     <TextBlock Text="{lex:Loc ChatDownload}" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=btnChatDownload, Mode=OneWay}" Padding="3,0,3,0" /> -->
         <!-- </Button> -->

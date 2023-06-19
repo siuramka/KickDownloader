@@ -26,22 +26,23 @@ public class PuppeteerHttpService
             _puppeteerExtra.Use(new StealthPlugin());
         }
 
-        public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null, IProgress<ProgressReport>?  progress = null)
+        public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null)
         {
-            var browserFetcher = new BrowserFetcher();
-            if (!IsChromiumInstalled(BrowserFetcher.DefaultChromiumRevision))
-            {
-                progress.Report(new ProgressReport(ReportType.SameLineStatus, "Downloading chromium [1/2]"));
-                await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
-                progress.Report(new ProgressReport(ReportType.SameLineStatus, "Downlaoded chromium! [2/2]"));
-                progress.Report(new ProgressReport() { ReportType = ReportType.Percent, Data = 100 });
 
-            }
 
             return new PuppeteerHttpService(launchOptions ?? new LaunchOptions { Headless = true }, baseUrl);
         }
 
-        private static bool IsChromiumInstalled(string revision)
+        public static async Task DownloadChromium(IProgress<ProgressReport>?  progress = null)
+        {
+            var browserFetcher = new BrowserFetcher();
+            progress.Report(new ProgressReport(ReportType.SameLineStatus, "Wait! Downloading chromium... ~500mb [1/1]"));
+            await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+            progress.Report(new ProgressReport(ReportType.SameLineStatus, "Done!"));
+            progress.Report(new ProgressReport() { ReportType = ReportType.Percent, Data = 100 });
+        }
+
+        public static bool IsBrowserInstalled(string revision = BrowserFetcher.DefaultChromiumRevision)
         {
             var browserFetcher = new BrowserFetcher();
             var path = browserFetcher.GetExecutablePath(revision);

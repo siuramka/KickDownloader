@@ -27,9 +27,9 @@ namespace TwitchDownloaderCore
         private static readonly HttpClient httpClient = new HttpClient();
         private static readonly string[] bttvZeroWidth = { "SoSnowy", "IceCold", "SantaHat", "TopHat", "ReinDeer", "CandyCane", "cvMask", "cvHazmat" };
 
-        public static async Task<VideoResponse> GetVideoInfo(string id, IProgress<ProgressReport>? progress = null)
+        public static async Task<VideoResponse> GetVideoInfo(string id)
         {
-            var service = await PuppeteerHttpService.CreateAsync(_baseUrl, progress: progress);
+            var service = await PuppeteerHttpService.CreateAsync(_baseUrl);
             VideoResponse videoInfo = await service.GetJsonAsync<VideoResponse>($"api/v1/video/{id}");
 
             return videoInfo;

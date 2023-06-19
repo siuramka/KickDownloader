@@ -74,7 +74,7 @@ namespace KickDownloaderWPF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0018:Inline variable declaration")]
         private async void btnGetInfo_Click(object sender, RoutedEventArgs e)
         {
-            Progress<ProgressReport> chromiumProgress = new Progress<ProgressReport>(OnProgressChanged);
+
             string videoId = ValidateUrl(textUrl.Text.Trim());
             if (videoId == null)
             {
@@ -85,7 +85,7 @@ namespace KickDownloaderWPF
             currentVideoId = videoId;
             try
             {
-                Task<VideoResponse> taskVideoInfo = KickHelper.GetVideoInfo(videoId, chromiumProgress);
+                Task<VideoResponse> taskVideoInfo = KickHelper.GetVideoInfo(videoId);
                 await Task.WhenAll(taskVideoInfo);
                 Task<string[]> taskPlaylist = KickHelper.GetVideoPlaylist(taskVideoInfo.Result.source);
                 try

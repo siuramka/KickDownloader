@@ -4,6 +4,8 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using KickDownloaderWPF.Properties;
+using TwitchDownloaderCore;
+using TwitchDownloaderCore.Tools;
 using Xabe.FFmpeg.Downloader;
 using static KickDownloaderWPF.App;
 
@@ -56,6 +58,15 @@ namespace KickDownloaderWPF
         {
             Main.Content = pageQueue;
         }
+        private void OnProgressChanged(ProgressReport progress)
+        {
+            switch (progress.ReportType)
+            {
+                case ReportType.NewLineStatus or ReportType.SameLineStatus:
+                    statusMessage.Text = (string)progress.Data;
+                    break;
+            }
+        }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -67,6 +78,11 @@ namespace KickDownloaderWPF
                 Settings.Default.Upgrade();
                 Settings.Default.UpgradeRequired = false;
                 Settings.Default.Save();
+            }
+            Progress<ProgressReport> chromiumProgress = new Progress<ProgressReport>(OnProgressChanged);
+            if (!PuppeteerHttpService.IsBrowserInstalled())
+            {
+                await PuppeteerHttpService.DownloadChromium(chromiumProgress);
             }
 
             if (!File.Exists("ffmpeg.exe"))
