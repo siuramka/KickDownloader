@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using PuppeteerExtraSharp;
 using PuppeteerExtraSharp.Plugins.ExtraStealth;
@@ -24,7 +25,7 @@ public class PuppeteerHttpService
         {
             _puppeteerExtra.Use(new StealthPlugin());
         }
-        
+
         public static async Task<PuppeteerHttpService> CreateAsync(string? baseUrl = "", LaunchOptions? launchOptions = null, IProgress<ProgressReport>?  progress = null)
         {
             var browserFetcher = new BrowserFetcher();
@@ -37,7 +38,7 @@ public class PuppeteerHttpService
 
             }
 
-            return new PuppeteerHttpService(launchOptions ?? new LaunchOptions {Headless = false}, baseUrl);
+            return new PuppeteerHttpService(launchOptions ?? new LaunchOptions { Headless = true }, baseUrl);
         }
 
         private static bool IsChromiumInstalled(string revision)
@@ -57,11 +58,21 @@ public class PuppeteerHttpService
             using (IBrowser browser = await _puppeteerExtra.LaunchAsync(_launchOptions))
             {
                 var page = await browser.NewPageAsync();
+                
+                var ua = await page.Browser.GetUserAgentAsync();
+                ua = ua.Replace("HeadlessChrome", "Chrome");
+
+                var regex = new Regex(@"/\(([^)]+)\)/");
+                ua = regex.Replace(ua, "(Windows NT 10.0; Win64; x64)");
+
+                await page.SetUserAgentAsync(ua);
+                
                 var navigation = new NavigationOptions
                 {
                     WaitUntil = new[] {
                     WaitUntilNavigation.DOMContentLoaded }
                 };
+                
                 await page.GoToAsync(_baseUrl + url, navigation);
                 
                 string content = await page.EvaluateExpressionAsync<string>("document.body.innerText"); //get inner text/text as puppeteer serializes html content
