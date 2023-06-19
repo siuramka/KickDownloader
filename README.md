@@ -31,7 +31,7 @@ git clone https://github.com/siuramka/KickDownloader.git
 ```
 2. Navigate to the solution folder:
 ```
-cd sKickDownloader
+cd KickDownloader
 ```
 3. Restore the solution:
 ```
