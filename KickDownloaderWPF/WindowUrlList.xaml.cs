@@ -8,7 +8,9 @@ using TwitchDownloaderCore;
 using TwitchDownloaderCore.TwitchObjects.Gql;
 using KickDownloaderWPF.Properties;
 using KickDownloaderWPF.TwitchTasks;
+using TwitchDownloaderCore.TwitchObjects.Api;
 using static KickDownloaderWPF.App;
+using Clip = TwitchDownloaderCore.TwitchObjects.Gql.Clip;
 
 namespace KickDownloaderWPF
 {
@@ -34,8 +36,11 @@ namespace KickDownloaderWPF
 
             foreach (var url in urlList)
             {
-                string id = PageChatDownload.ValidateUrl(url);
-
+                string id = PageVodDownload.ValidateUrl(url) ;
+                if (id == null)
+                {
+                    id = PageClipDownload.ValidateUrl(url);
+                }
                 if (id == "")
                 {
                     invalidList.Add(url);
@@ -54,20 +59,20 @@ namespace KickDownloaderWPF
             }
 
             Dictionary<int, string> taskDict = new Dictionary<int, string>();
-            List<Task<GqlVideoResponse>> taskVideoList = new List<Task<GqlVideoResponse>>();
-            List<Task<GqlClipResponse>> taskClipList = new List<Task<GqlClipResponse>>();
+            List<Task<VideoResponse>> taskVideoList = new List<Task<VideoResponse>>();
+            List<Task<ClipsResponse>> taskClipList = new List<Task<ClipsResponse>>();
 
             foreach (var id in idList)
             {
-                if (id.All(Char.IsDigit))
+                if (!id.All(Char.IsNumber))
                 {
-                    Task<GqlVideoResponse> task = TwitchHelper.GetVideoInfo(int.Parse(id));
+                    Task<VideoResponse> task = KickHelper.GetVideoInfo(id);
                     taskVideoList.Add(task);
                     taskDict[task.Id] = id;
                 }
                 else
                 {
-                    Task<GqlClipResponse> task = TwitchHelper.GetClipInfo(id);
+                    Task<ClipsResponse> task = KickHelper.GetClipInfo(id);
                     taskClipList.Add(task);
                     taskDict[task.Id] = id;
                 }
@@ -75,12 +80,12 @@ namespace KickDownloaderWPF
 
             try
             {
-                await Task.WhenAll(taskVideoList.ToArray());
+                await Task.WhenAll(taskVideoList);
             }
             catch { }
             try
             {
-                await Task.WhenAll(taskClipList.ToArray());
+                await Task.WhenAll(taskClipList);
             }
             catch { }
 
@@ -91,12 +96,12 @@ namespace KickDownloaderWPF
                     string id = taskDict[taskVideoList[i].Id];
                     if (!taskVideoList[i].IsFaulted)
                     {
-                        GqlVideoResponse data = taskVideoList[i].Result;
+                        VideoResponse data = taskVideoList[i].Result;
                         TaskData newData = new TaskData();
                         newData.Id = id;
                         try
                         {
-                            string thumbUrl = data.data.video.thumbnailURLs.FirstOrDefault();
+                            string thumbUrl = data.livestream.thumbnail;
                             var bitmapImage = new BitmapImage();
                             bitmapImage.BeginInit();
                             bitmapImage.UriSource = new Uri(thumbUrl);
@@ -104,9 +109,9 @@ namespace KickDownloaderWPF
                             newData.Thumbnail = bitmapImage;
                         }
                         catch { }
-                        newData.Title = data.data.video.title;
-                        newData.Streamer = data.data.video.owner.displayName;
-                        newData.Time = Settings.Default.UTCVideoTime ? data.data.video.createdAt : data.data.video.createdAt.ToLocalTime();
+                        newData.Title = data.livestream.session_title;
+                        newData.Streamer = data.livestream.channel.username;
+                        newData.Time = Settings.Default.UTCVideoTime ? data.created_at : data.created_at.ToLocalTime();
                         dataList.Add(newData);
                     }
                     else
@@ -123,12 +128,12 @@ namespace KickDownloaderWPF
                     string id = taskDict[taskClipList[i].Id];
                     if (!taskClipList[i].IsFaulted)
                     {
-                        GqlClipResponse data = taskClipList[i].Result;
+                        ClipsResponse data = taskClipList[i].Result;
                         TaskData newData = new TaskData();
                         newData.Id = id;
                         try
                         {
-                            string thumbUrl = data.data.clip.thumbnailURL;
+                            string thumbUrl = data.clip.thumbnail_url;
                             var bitmapImage = new BitmapImage();
                             bitmapImage.BeginInit();
                             bitmapImage.UriSource = new Uri(thumbUrl);
@@ -136,9 +141,9 @@ namespace KickDownloaderWPF
                             newData.Thumbnail = bitmapImage;
                         }
                         catch { }
-                        newData.Title = data.data.clip.title;
-                        newData.Streamer = data.data.clip.broadcaster.displayName;
-                        newData.Time = Settings.Default.UTCVideoTime ? data.data.clip.createdAt : data.data.clip.createdAt.ToLocalTime();
+                        newData.Title = data.clip.title;
+                        newData.Streamer = data.clip.channel.username;
+                        newData.Time = Settings.Default.UTCVideoTime ? data.clip.created_at : data.clip.created_at.ToLocalTime();
                         dataList.Add(newData);
                     }
                     else

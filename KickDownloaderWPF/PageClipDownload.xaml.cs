@@ -104,7 +104,7 @@ namespace KickDownloaderWPF
             BtnCancel.Visibility = Visibility.Collapsed;
         }
 
-        private static string ValidateUrl(string text)
+        public static string ValidateUrl(string text)
         {
             var vodIdMatch = Regex.Match(text, @"https:\/\/kick\.com\/([a-zA-Z0-9_]+)\?clip=[0-9]+");
             string vodGuid = text.Split('=').Last();
@@ -239,26 +239,5 @@ namespace KickDownloaderWPF
             WindowQueueOptions queueOptions = new WindowQueueOptions(this);
             queueOptions.ShowDialog();
         }
-    }
-}
-
-public class TwitchClip
-{
-    public string quality { get; set; }
-    public string framerate { get; set; }
-    public string url { get; set; }
-
-    public TwitchClip(string Quality, string Framerate, string Url)
-    {
-        quality = Quality;
-        framerate = Framerate;
-        url = Url;
-    }
-
-    override
-        public string ToString()
-    {
-        //Only show framerate if it's not 30fps
-        return String.Format("{0}p{1}", quality, framerate == "30" ? "" : framerate);
     }
 }

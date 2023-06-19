@@ -324,16 +324,13 @@ namespace KickDownloaderWPF
             }
         }
 
-        private static string ValidateUrl(string text)
+        public static string ValidateUrl(string text)
         {
             var vodIdMatch = Regex.Match(text, @"^https:\/\/kick\.com\/video\/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$");
             string vodGuid = text.Split('/').Last();
-            if (vodIdMatch.Success)
-            {
-                return vodGuid;
-            }
-
-            return null;
+            return vodIdMatch.Success
+                ? vodGuid
+                : null;
         }
 
         public bool ValidateInputs()

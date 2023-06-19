@@ -393,11 +393,11 @@ namespace KickDownloaderWPF
                     {
                         if ((bool)checkVideo.IsChecked)
                         {
-                            if (dataList[i].Id.All(Char.IsDigit))
+                            if (!dataList[i].Id.All(Char.IsDigit))
                             {
                                 VodDownloadTask downloadTask = new VodDownloadTask();
                                 VideoDownloadOptions downloadOptions = new VideoDownloadOptions();
-                                downloadOptions.Oauth = Settings.Default.OAuth;
+                                downloadOptions.Oauth = "";
                                 downloadOptions.TempFolder = Settings.Default.TempPath;
                                 downloadOptions.Id = dataList[i].Id;
                                 downloadOptions.FfmpegPath = "ffmpeg";

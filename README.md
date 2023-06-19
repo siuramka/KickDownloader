@@ -1,6 +1,6 @@
-# Kick Vod Downloader
-
 # This is a fork of the lay295/TwitchDownloader
+
+# Kick Vod Downloader
 
 About: 
 
@@ -13,6 +13,10 @@ If Kick introduces proper API support in the future, this repository will be upd
 ## Latest Alpha
 - Download VODs
 - Download Clips
+- Task Queue
+- Download from URL list parallel
+
+Haven't got rate limited even once while testing lol
 
 
 Preview:
@@ -41,7 +45,7 @@ dotnet restore
 ```
 dotnet publish KickDownloaderWPF -p:PublishProfile=Windows -p:DebugType=None -p:DebugSymbols=false
 ```
-5. a) Navigate to the GUI build folder:
+5. Navigate to the GUI build folder:
 ```
 cd KickDownloaderWPF/bin/Release/net6.0-windows/publish/win-x64
 ```
